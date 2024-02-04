@@ -23,7 +23,9 @@ try {
                 // chuyển hướng trang
             }
 
-            header("Location: ../page/quanly.php");
+            if(isset($_GET['login'])) {
+                header("Location: ../page/quanly.php");
+            }
             
         } else {
             // chuyển hướng
