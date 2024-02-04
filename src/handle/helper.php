@@ -193,4 +193,12 @@
         $imgDecoded = base64_decode($imgData);
         return $imgDecoded;
     }
+
+    function formatnumber($input) {
+        // Sử dụng number_format để định dạng số
+        $formattedCurrency = number_format($input, 0, ',', '.');
+    
+        // Trả về chuỗi đã được định dạng
+        return $formattedCurrency;
+    }
 ?> 
