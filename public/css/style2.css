@@ -1,0 +1,61 @@
+
+.danhsachsanpham .sanpham {
+    text-decoration: none;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 200px;
+    height: 250px;
+    border: 1px solid black;
+    margin: 5px;
+}
+.danhsachsanpham .sanpham .anhsp {
+    text-align: center;
+}
+.danhsachsanpham .sanpham .anhsp img {
+    height: 150px;
+    object-fit: contain;
+    padding: 5px 0;
+}
+
+.danhsachsanpham .sanpham .tensanpham {
+    max-height: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+
+}
+
+.danhsachsanpham .sanpham .gia s {
+    color: red;
+    font-size: 11px;
+}
+
+.danhsachsanpham .sanpham .gia .giamoi {
+    font-weight: 500;
+}
+.danhsachsanpham .sanpham .sukien {
+    text-align: right;
+    padding: 5px 0;
+}
+.danhsachsanpham .sanpham .sukien div {
+    position: relative;
+    display: inline-block;
+}
+
+.danhsachsanpham .sanpham .sukien div .giam {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #F44336;
+    right: 5px;
+    top: 5px;
+    font-size: 12px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 20px;
+    font-weight: 500;
+}
+.danhsachsanpham .sanpham .sukien img {
+    height: 30px;
+}
+

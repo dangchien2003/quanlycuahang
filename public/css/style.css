@@ -50,6 +50,7 @@
 }
 
 .menu .sub-menu {
+    display: none;
     margin-left: 20px;
     margin-top: 5px;
 }
