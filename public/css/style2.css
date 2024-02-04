@@ -1,11 +1,14 @@
-
+a {
+    text-decoration: none;
+    color: black; 
+}
 .danhsachsanpham .sanpham {
     text-decoration: none;
     color: black;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 200px;
     height: 250px;
-    border: 1px solid black;
+    border: 1px solid #ececec;
     margin: 5px;
 }
 .danhsachsanpham .sanpham .anhsp {
@@ -25,12 +28,12 @@
 
 }
 
-.danhsachsanpham .sanpham .gia s {
+.gia s {
     color: red;
     font-size: 11px;
 }
 
-.danhsachsanpham .sanpham .gia .giamoi {
+.gia .giamoi {
     font-weight: 500;
 }
 .danhsachsanpham .sanpham .sukien {
@@ -59,3 +62,21 @@
     height: 30px;
 }
 
+
+.thongtinsanpham {
+    display: grid;
+    grid-template-columns: 3fr 7fr;
+    gap: 15px;
+}
+
+.thongtinsanpham .anhsp img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.thongtinsanpham .hanhdong {
+    margin: 5px 0;
+    color: rgb(254, 254, 254);
+    font-weight: bold;
+    outline: none;
+}

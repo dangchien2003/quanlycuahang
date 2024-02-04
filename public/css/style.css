@@ -240,7 +240,7 @@ header .sl-tb {
 
 .me-2 {
     box-shadow: -2px 3px 5px  #ececec, 1px 0 5px #ececec;
-    min-width: 100px;
+    width: 100px;
     margin-right: 10px;
     border: 1px solid #ececec;
 }
