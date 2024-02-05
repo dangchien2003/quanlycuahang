@@ -24,7 +24,7 @@ if ($error['e']) {
             <form action="../handle/banhang.php?mh=sp" method="post" class="thongtinsanpham">
                 <input type="text" name="idsp" class="d-none" value="<?php echo $row['idsp']?>">
                 <div class="anhsp">
-                    <img src="../../public/image/uploads/anhsp2.jpg" alt="">
+                    <img src="../../public/image/uploads/<?php echo $row['anhsp']?>" alt="">
                 </div>
                 <div class="chitiet">
                     <h5>

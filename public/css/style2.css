@@ -6,13 +6,14 @@ a {
     text-decoration: none;
     color: black;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    width: 200px;
+    width: 180px;
     height: 250px;
     border: 1px solid #ececec;
     margin: 5px;
 }
 .danhsachsanpham .sanpham .anhsp {
     text-align: center;
+    height: 150px;
 }
 .danhsachsanpham .sanpham .anhsp img {
     height: 150px;

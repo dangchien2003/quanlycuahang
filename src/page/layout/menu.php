@@ -9,9 +9,9 @@
             </span>
         </li>
         <ul class="list-unstyled sub-menu">
-            <a href="./sanpham.php">
+            <a href="./cuahang.php">
                 <li>
-                    <i class="bi bi-border-style"></i>
+                    <i class="bi bi-shop-window"></i>
                     Cửa hàng
                 </li>
             </a>

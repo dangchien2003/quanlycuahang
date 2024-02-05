@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../../public/css/toast.css">
     <?php
-    error_reporting(0);
+    error_reporting(1);
     function addStyle($name)
     {
         foreach ($name as $style) {
@@ -33,7 +33,7 @@
     <?php include 'calc.php' ?>
 
     <header class="text-white ">
-        <div class="logo"><img src="../../public/image/icon/logo.png" alt=""><span class="" style="width: 100%;">CỬA HÀNG QUYẾT LEN</span></div>
+        <div class="logo"><img src="../../public/image/icon/logo.png" alt=""></div>
         <div class="menu ">
             <nav class="navbar navbar-expand-lg navbar-light ">
                 <div class="container-fluid">
@@ -51,6 +51,7 @@
 
                             <!-- <a class="nav-link text-white" href="thongtincanhan.php"><img
                                     src="../../public/image/bg-login.jfif" alt=""></a> -->
+                            <a class="nav-link text-white" href="doimatkhau.php">Đổi mật khẩu</a>
                             <a class="nav-link text-white" href="dangnhap.php"><i class="fa-solid fa-power-off"></i></a>
                         </div>
                     </div>

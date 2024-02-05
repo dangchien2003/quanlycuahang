@@ -24,7 +24,7 @@ try {
             }
 
             if(isset($_GET['login'])) {
-                header("Location: ../page/quanly.php");
+                header("Location: ../page/cuahang.php");
             }
             
         } else {
