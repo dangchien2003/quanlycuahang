@@ -3,7 +3,7 @@
 $row = null;
 $error = ["e" => false, "message" => ""];
 if (checkRequest($_GET, ["id"])) {
-    $sql = "SELECT sanpham.*, phanloaisanpham.loaisanpham FROM sanpham JOIN phanloaisanpham on sanpham.phanloai = phanloaisanpham.maphanloai where sanpham.trangthai in (1, 6) and sanpham.idsp = ?";
+    $sql = "SELECT sanpham.*, phanloaisanpham.loaisanpham, sanpham.soluong, sanpham.gianhap FROM sanpham JOIN phanloaisanpham on sanpham.phanloai = phanloaisanpham.maphanloai where sanpham.trangthai in (1, 6) and sanpham.idsp = ?";
     $result = query_input($sql, [$_GET['id']]);
     $result->num_rows == 1 ? $row = $result->fetch_assoc() : $error = ["e" => true, "message" => "Không tìm thấy sản phẩm"];
     $giaban = $row['giaban'] - $row['giaban'] * $row['giamgia'] / 100;
@@ -22,7 +22,8 @@ if ($error['e']) {
     <div class="col-lg-9 sdp tp" style="min-height: 1000px;">
         <div class="box ">
             <form action="../handle/banhang.php?mh=sp" method="post" class="thongtinsanpham">
-                <input type="text" name="idsp" class="d-none" value="<?php echo $row['idsp']?>">
+                <input type="password" name="idsp" class="d-none" value="<?php echo $row['idsp']?>">
+                <input type="password" name="gn" class="d-none" value="<?php echo $row['gianhap']?>">
                 <div class="anhsp">
                     <img src="../../public/image/uploads/<?php echo $row['anhsp']?>" alt="">
                 </div>
@@ -68,9 +69,11 @@ if ($error['e']) {
                             <span>Số lượng:
                                 <?php echo $row['soluong'] ?>
                             </span>
-                            <div>
-                                <button class="hanhdong btn-tt bgr-ok"
-                                    onclick="return confirm('Xác nhận bán sản phẩm')">
+                        <?php 
+                        if($row['soluong']) {
+                             ?> 
+                             <div>
+                                <button class="hanhdong btn-tt bgr-ok" id="submit">
                                     Bán hàng
                                 </button>
                                 <span>
@@ -80,7 +83,9 @@ if ($error['e']) {
                                         id="sl" name="sl">
                                     <i class="bi bi-chevron-up"></i>
                                 </span>
-                            </div>
+                            </div><?php 
+                        }
+                        ?> 
                 </div>
             </form>
             <br>
@@ -103,6 +108,8 @@ if ($error['e']) {
     </div>
 </div>
 
+
+
 <?php include './layout/footer.php' ?>
 <script>
     $(".bi-chevron-down").click(function () {
@@ -117,4 +124,14 @@ if ($error['e']) {
             $("#sl").val(1);
         }
     });
+
+    $(".thongtinsanpham").submit(function (event) {
+        event.preventDefault();
+    })
+    $("#submit").click(function () {
+        var kh = prompt("Nhập tên khách hàng");
+        
+        $(".thongtinsanpham").append(`<input type="text" class="d-none" name="kh" value="${kh}">`);
+        $(".thongtinsanpham").off("submit").submit();
+    })
 </script>

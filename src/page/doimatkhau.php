@@ -1,5 +1,5 @@
 <?php include './layout/header.php';
-
+include_once "../handle/checkAccount.php";
 $user = "";
 // nếu có session account
 if (checkRequest($_SESSION, ['account'])) {
