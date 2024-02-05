@@ -1,5 +1,5 @@
 <?php include './layout/header.php';
-//  include_once '../handle/checkAccount.php' 
+ include_once '../handle/checkAccount.php' ;
 $row = null;
 $error = ["e" => false, "message" => ""];
 if (checkRequest($_GET, ["id"])) {
