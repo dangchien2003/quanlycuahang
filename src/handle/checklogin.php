@@ -14,7 +14,7 @@ try {
                 $account_mh = maHoa($account);
 
                 // đẩy về cookie
-                setcookie("account", $account_mh, time() + get_ENV()['timeCookie'], '/', false, true);
+                setcookie("account", $account_mh, time() + get_ENV()['timeCookie'], '/');
                 // chuyển hướng trang
             } else {
                 // không nhớ tkmk

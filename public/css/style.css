@@ -453,7 +453,9 @@ header .sl-tb {
 .table-sv table::-webkit-scrollbar {
     width: 5px;
     /*background-color: rgb(248, 137, 137);*/
-    border-radius: 100rem
+    border-radius: 100rem;
+    height: 5px;
+    
 }
 
 /* chỉnh sửa thanh cuộn bên trong */

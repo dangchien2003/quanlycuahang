@@ -84,6 +84,12 @@ if ($error['e']) {
                                     <i class="bi bi-chevron-up"></i>
                                 </span>
                             </div><?php 
+                        }else {
+                            ?>
+                            <div style="color: red;">
+                                Hết hàng
+                            </div>
+                            <?php
                         }
                         ?> 
                 </div>

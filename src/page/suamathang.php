@@ -1,5 +1,5 @@
 <?php include './layout/header.php';
-include_once '../handle/checkAccount.php';
+// include_once '../handle/checkAccount.php';
 ?>
 
 <div class="row">
@@ -19,7 +19,7 @@ include_once '../handle/checkAccount.php';
                     </div>
                 </div>
                 <div class="col-md-7">
-                    <form action="../handle/themmathang.php" method="post" enctype="multipart/form-data">
+                    <form action="../handle/suamathang.php" method="post" enctype="multipart/form-data">
                         <div class="row">
 
                             <div class="col-md-4">
@@ -31,7 +31,7 @@ include_once '../handle/checkAccount.php';
                                 <select class="form-select" aria-label="Default select example" name="hang" required>
                                     <option value="0" selected>Khác</option>
                                     <?php
-                                    $sql = "SELECT DISTINCT hangsx from sanpham group by hangsx";
+                                    $sql = "SELECT hangsx from sanpham group by hangsx";
                                     $result = query_no_input($sql);
                                     if ($result->num_rows > 0) {
                                         while ($row = $result->fetch_assoc()) {
