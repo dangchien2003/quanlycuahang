@@ -33,7 +33,7 @@ include_once '../handle/checkAccount.php';
                         $tensp = " like '%" . $_GET['f'] . "%'";
                     }
 
-                    $sql = "SELECT sanpham.tensp, sanpham.idsp, sanpham.giaban, sanpham.giamgia, sanpham.loaisp, sanpham.anhsp FROM sanpham where sanpham.trangthai in (1, 6) and (sanpham.phanloai $phanloai or sanpham.tensp $tensp)";
+                    $sql = "SELECT sanpham.tensp, sanpham.idsp, sanpham.giaban, sanpham.giamgia, sanpham.loaisp, sanpham.anhsp, sanpham.soluong FROM sanpham where sanpham.trangthai in (1, 6) and (sanpham.phanloai $phanloai or sanpham.tensp $tensp)";
                     $result = query_no_input($sql);
                     if ($result->num_rows != 0) {
                         while ($row = $result->fetch_assoc()) {
@@ -58,6 +58,13 @@ include_once '../handle/checkAccount.php';
                                     } ?>
                                 </div>
                                 <div class="sukien">
+                                    <div>
+                                        <?php if (!$row['soluong']) {
+                                            ?>
+                                            <img src="../../public/image//icon/hethang.png" alt="">
+                                            <?php
+                                        } ?>
+                                    </div>
                                     <div>
                                         <?php if (!$row['loaisp']) {
                                             ?>

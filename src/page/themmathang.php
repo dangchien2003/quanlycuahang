@@ -137,7 +137,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-8">
-                                <label class="form-label">Thông tin khác:</label>
+                                <label class="form-label">Thông tin khác(từ khoá?thông tin*từ khoá?thông tin):</label>
                                 <textarea type="number" class="form-control" id="exampleFormControlInput1" name="ttkhac"
                                     value="0"></textarea>
                             </div>
