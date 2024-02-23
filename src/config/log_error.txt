@@ -1,5 +1,7 @@
-2024-02-05 21:31:02||tham số truyền không trùng nhau
-2024-02-05 21:31:21||tham số truyền không trùng nhau
-2024-02-05 21:31:29||tham số truyền không trùng nhau
-2024-02-05 21:31:33||tham số truyền không trùng nhau
-2024-02-05 21:31:40||tham số truyền không trùng nhau
+đâs
+2024-02-23 15:40:31||ERROR SQL_INSERT into phanloaisanpham(loaisanpham) values(?)
+2024-02-23 15:40:43||ERROR SQL_INSERT into phanloaisanpham(loaisanpham) values(?)
+2024-02-23 15:41:31||ERROR SQL_INSERT into phanloaisanpham(loaisanpham) values(?)
+2024-02-23 15:42:20||ERROR SQL_INSERT into phanloaisanpham(loaisanpham) values(?)
+2024-02-23 15:42:25||ERROR SQL_INSERT into phanloaisanpham(loaisanpham) values(?)
+2024-02-23 15:50:46||ERROR SQL_INSERT

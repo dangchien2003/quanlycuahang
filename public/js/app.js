@@ -137,3 +137,45 @@ function addParams(key, value) {
   url.search = params.toString();
   history.replaceState(null, "", url.toString());
 }
+
+function cover_input_to_canvas(ipf, canv) {
+  // Lấy file ảnh từ input
+  const file = document.getElementById(ipf).files[0];
+  // Tạo đối tượng FileReader để đọc file ảnh
+  const reader = new FileReader();
+
+  reader.onload = function (event) {
+    // Tạo một đối tượng hình ảnh mới
+    const img = new Image();
+
+    img.onload = function () {
+      // Lấy context của canvas
+      const canvas = document.getElementById(canv);
+      const ctx = canvas.getContext("2d");
+
+      // Đặt kích thước canvas bằng kích thước của ảnh
+      canvas.width = img.width;
+      canvas.height = img.height;
+
+      // Vẽ ảnh lên canvas
+      ctx.drawImage(img, 0, 0);
+    };
+
+    // Thiết lập nguồn ảnh cho đối tượng hình ảnh
+    img.src = event.target.result;
+    takePhoto = true;
+    upload_file = true;
+    // showImg();
+  };
+
+  // Đọc file ảnh như là một định dạng dữ liệu URL
+  reader.readAsDataURL(file);
+}
+function showImg() {
+  if (!video_status && !upload_file) {
+    toastError("Mở camera");
+  } else {
+    $("#canvas").removeClass("d-none");
+    // takeSnapshot();
+  }
+}

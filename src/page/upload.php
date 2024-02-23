@@ -2,6 +2,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
     $target_dir = "./";  // Thư mục nơi bạn muốn lưu trữ tệp tin
     $target_file = $target_dir . basename($_FILES["file"]["name"]);
+    echo $target_file;
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 

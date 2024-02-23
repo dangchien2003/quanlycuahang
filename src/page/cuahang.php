@@ -26,14 +26,14 @@ include_once '../handle/checkAccount.php';
             <div class="danhsachsanpham">
                 <div class="row">
                     <?php
-                    $phanloai = " = phanloaisanpham.loaisanpham";
+                    $phanloai = " = sanpham.phanloai";
                     $tensp = " = sanpham.tensp";
                     if (checkRequest($_GET, ["f"])) {
                         $phanloai = " like '%" . $_GET['f'] . "%'";
                         $tensp = " like '%" . $_GET['f'] . "%'";
                     }
 
-                    $sql = "SELECT sanpham.tensp, sanpham.idsp, sanpham.giaban, sanpham.giamgia, sanpham.loaisp, sanpham.anhsp FROM sanpham join phanloaisanpham on phanloaisanpham.maphanloai = sanpham.phanloai where sanpham.trangthai in (1, 6) and (phanloaisanpham.loaisanpham  $phanloai or sanpham.tensp $tensp)";
+                    $sql = "SELECT sanpham.tensp, sanpham.idsp, sanpham.giaban, sanpham.giamgia, sanpham.loaisp, sanpham.anhsp FROM sanpham where sanpham.trangthai in (1, 6) and (sanpham.phanloai $phanloai or sanpham.tensp $tensp)";
                     $result = query_no_input($sql);
                     if ($result->num_rows != 0) {
                         while ($row = $result->fetch_assoc()) {

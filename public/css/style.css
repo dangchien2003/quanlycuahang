@@ -271,10 +271,10 @@ header .sl-tb {
 
 
 .info-student .a-d-d {
-    height: 300px;
-    width: 300px;
-    object-fit: cover;
-    border: 10px solid white;
+    height: 150px;
+    width: 150px;
+    object-fit: contain;
+    border: 2px solid #ececec;
     display: block;
     margin: 0 auto;
     overflow: hidden;
@@ -282,7 +282,7 @@ header .sl-tb {
 
 
 .info-student .a-d-d img {
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .info-student input, .dmk input  {

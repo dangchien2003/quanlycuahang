@@ -15,7 +15,7 @@
                     Cửa hàng
                 </li>
             </a>
-            <a href="./themphong.php">
+            <a href="./themmathang.php">
                 <li>
                     <i class="bi bi-patch-plus"></i>
                     Thêm sản phẩm

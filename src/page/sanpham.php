@@ -3,7 +3,7 @@
 $row = null;
 $error = ["e" => false, "message" => ""];
 if (checkRequest($_GET, ["id"])) {
-    $sql = "SELECT sanpham.*, phanloaisanpham.loaisanpham, sanpham.soluong, sanpham.gianhap FROM sanpham JOIN phanloaisanpham on sanpham.phanloai = phanloaisanpham.maphanloai where sanpham.trangthai in (1, 6) and sanpham.idsp = ?";
+    $sql = "SELECT sanpham.*, sanpham.phanloai, sanpham.soluong, sanpham.gianhap FROM sanpham where sanpham.trangthai in (1, 6) and sanpham.idsp = ?";
     $result = query_input($sql, [$_GET['id']]);
     $result->num_rows == 1 ? $row = $result->fetch_assoc() : $error = ["e" => true, "message" => "Không tìm thấy sản phẩm"];
     $giaban = $row['giaban'] - $row['giaban'] * $row['giamgia'] / 100;
@@ -92,7 +92,7 @@ if ($error['e']) {
             <div class="box" style="height: 800px;">
                 <h5>Thông tin khác</h5>
                 <ul>
-                    <li>Loại hàng: <?php echo $row['loaisanpham']?></li>
+                    <li>Loại hàng: <?php echo $row['phanloai']?></li>
                     <?php 
                     if($row['thongtinkhac']) {
                         $li = explode('*',$row['thongtinkhac']);
