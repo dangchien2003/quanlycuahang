@@ -243,9 +243,10 @@ header .sl-tb {
 
 .me-2 {
     box-shadow: -2px 3px 5px  #ececec, 1px 0 5px #ececec;
-    width: 100px;
+    width: 150px;
     margin-right: 10px;
     border: 1px solid #ececec;
+    margin-top: 3px;
 }
 
 .mgr-10 {

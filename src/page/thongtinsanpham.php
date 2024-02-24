@@ -204,11 +204,26 @@ if ($haveError) {
 
                         <button type="submit" class="btn btn-success"
                             onclick="return confirm('Bạn chắc chắn muốn sửa')">Sửa</button>
-                        <a href="../handle/hdl_xoasanpham.php?idsp=<?php echo $sp["idsp"] ?>&action=delete  "
-                            class="show"
-                            onclick="return confirm('Bạn có chắc chắn muốn xoá <?php echo $row['tensp'] ?>')">
-                            <div class="btn d-inline-block bgr-error">Xoá</div>
-                        </a>
+                        <?php
+                        if ($sp['xoaluc']) {
+                            ?>
+                            <a href="../handle/hdl_boxoasanpham.php?idsp=<?php echo $sp["idsp"] ?>&action=recall  "
+                                class="show"
+                                onclick="return confirm('Bạn có chắc chắn muốn bỏ xoá <?php echo $sp['tensp'] ?>')">
+                                <div class="btn d-inline-block bgr-wait">Mở khoá</div>
+                            </a>
+                            <?php
+                        } else {
+                            ?>
+                            <a href="../handle/hdl_xoasanpham.php?idsp=<?php echo $sp["idsp"] ?>&action=delete"
+                                class="show"
+                                onclick="return confirm('Bạn có chắc chắn muốn xoá <?php echo $sp['tensp'] ?>')">
+                                <div class="btn d-inline-block bgr-error">Xoá</div>
+                            </a>
+                            <?php
+                        }
+
+                        ?>
                     </form>
                 </div>
             </div>
