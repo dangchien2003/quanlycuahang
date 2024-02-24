@@ -2,6 +2,9 @@ a {
     text-decoration: none;
     color: black; 
 }
+.border-delete {
+    border: 1px solid red !important;
+}
 .danhsachsanpham .sanpham {
     text-decoration: none;
     color: black;

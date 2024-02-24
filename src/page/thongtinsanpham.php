@@ -171,7 +171,7 @@ if($haveError) {
                             </div>
                         </div>
                         <div class="row info-student">
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <label class="form-label">Ảnh sản phẩm:</label>
                                 <input type="file" name="anhsp" id="inp">
                             </div>
@@ -181,8 +181,8 @@ if($haveError) {
                             </canvas>
                             <?php if ($sp["anhsp"]) {
                                 ?>
-                                <div class="col-md-3">
-                                    <img src="../../public/image/uploads/<?php echo $sp["anhsp"] ?>" alt="" class=" a-d-d">
+                                <div class="col-md-3 ">
+                                    <img src="../../public/image/uploads/<?php echo $sp["anhsp"] ?>" alt="" class="a-d-d img-old">
                                 </div>
                                 <canvas class="col-md-3 a-d-d d-none" id="anh">
                                 <?php
@@ -211,6 +211,11 @@ if($haveError) {
 <?php include './layout/footer.php' ?>
 <script>
     $(document).ready(function () {
+        $("#inp").on("change", function() {
+            $("#anh").removeClass("d-none");
+            $("#anh").removeClass("d-none");
+            $(".img-old").addClass("border-delete")
+        })
         $('select[name="hang"]').change(function () {
             if ($('select[name="hang"]').val() == 0) {
                 $('input[name="tenhang"]').removeClass('d-none');

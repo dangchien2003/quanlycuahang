@@ -15,7 +15,7 @@ if (checkRequest($_POST, ["idsp"]) && checkRequest($_GET, ["idsp"])) {
             $gianhap = $_POST['gianhap'] ?? 0;
             $giamgia = $_POST['giamgia'] ?? 0;
             $trangthai = $_POST['trangthai'] ?? 2;
-            $ttkhac = "";
+            $ttkhac = $_POST['ttkhac']??"";
             $taoluc = getTimestamp(0);
 
             $sql = "update sanpham set tensp = ?, phanloai = ?, hangsx = ?, loaisp = ?, soluong = ?, giaban = ?, trangthai = ?, thongtinkhac = ?, giamgia = ?, gianhap = ? where idsp = ?";
@@ -28,6 +28,11 @@ if (checkRequest($_POST, ["idsp"]) && checkRequest($_GET, ["idsp"])) {
                     $update = query_input($sql, [$name_file, $_POST['idsp']]);
                     if (!$update) {
                         header("Location: ../page/thongtinsanpham.php?status=200&message=Thành công và không thể lưu ảnh DB&id=".$_GET['idsp']);
+                    }else {
+                        $remove_file = remove_img($_POST['tenanh']);
+                        if(!$remove_file) {
+                            header("Location: ../page/thongtinsanpham.php?status=200&message=Đã Sửa thành công nhưng lỗi xoá ảnh&id=".$_GET['idsp']);
+                        }
                     }
                 }
                 header("Location: ../page/thongtinsanpham.php?status=200&message=Đã Sửa thành công&id=".$_GET['idsp']);
@@ -64,6 +69,24 @@ function getThongTinKhac()
     if (checkRequest($_POST, ["ttkhac"])) {
         //
     }
+}
+
+function remove_img($name, $location = "../../public/image/uploads/") {
+    if(trim($name)) {
+        $target_file = $location.$name;
+        $file_exisit = false;
+        // Kiểm tra nếu tập tin đã tồn tại
+        if (file_exists($target_file)) {
+            $file_exisit = true;
+        }
+
+        if($file_exisit) {
+            if(!unlink($target_file)) {
+                return false;
+            }
+        }
+    }
+    return true;
 }
 
 function uploadIMG()

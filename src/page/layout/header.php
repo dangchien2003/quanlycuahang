@@ -47,8 +47,8 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                         <div class="navbar-nav" style="font-weight: 500;">
-                            <a class="nav-link active text-white" aria-current="page" href="#"><i
-                                    class="bi bi-telephone-forward-fill p-1 fs-5"></i>Điện thoại hỗ trợ: 0333444555</a>
+                            <a class="nav-link active text-white" aria-current="page" href="https://zalo.me/0333757429" target="_blank" ><i
+                                    class="bi bi-telephone-forward-fill p-1 fs-5"></i>Điện thoại hỗ trợ: 0333757429</a>
 
                             <!-- <a class="nav-link text-white" href="thongtincanhan.php"><img
                                     src="../../public/image/bg-login.jfif" alt=""></a> -->
