@@ -50,7 +50,7 @@ include_once '../handle/checkAccount.php';
                         //             break;
                         //     }
                         // }
-                        $sql = "SELECT idsp, tensp, giaban, soluong, trangthai, trangthai.tentrangthai, anhsp FROM sanpham JOIN trangthai on trangthai.id = sanpham.trangthai LIMIT ?, ?";
+                        $sql = "SELECT idsp, tensp, giaban, soluong, trangthai, trangthai.tentrangthai, anhsp FROM sanpham JOIN trangthai on trangthai.id = sanpham.trangthai where sanpham.xoaluc is null LIMIT ?, ?";
 
                         $result = query_input($sql, [($page - 1) * $item_one_page, $page * $item_one_page]);
                         if ($result->num_rows == 0) {
@@ -89,15 +89,14 @@ include_once '../handle/checkAccount.php';
                                             class="show">
                                             <div class="btn-tt d-inline-block bgr-ok">Xem</div>
                                         </a>
-                                        <a href="./thongtinsanpham.php?id=<?php echo $row['idsp'] ?>&action=show  "
-                                            class="show">
+                                        <a href="../handle/hdl_xoasanpham.php?idsp=<?php echo $row['idsp'] ?>&action=delete  "
+                                            class="show" onclick="return confirm('Bạn có chắc chắn muốn xoá <?php echo$row['tensp'] ?>')">
                                             <div class="btn-tt d-inline-block bgr-error">Xoá</div>
                                         </a>
                                     </td>
 
                                 </tr>
                                 <?php
-
                             }
                         }
 

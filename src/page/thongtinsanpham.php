@@ -11,11 +11,11 @@ if (checkRequest($_GET, ["id"])) {
     } else {
         $haveError = true;
     }
-}else {
+} else {
     $haveError = true;
 }
 
-if($haveError) {
+if ($haveError) {
     header("Location: ./dssanpham.php?status=300&message=Không tìm thấy sản phẩm");
     exit();
 }
@@ -38,7 +38,8 @@ if($haveError) {
                     </div>
                 </div>
                 <div class="col-md-7">
-                    <form action="../handle/hdl_suasanpham.php?idsp=<?php echo $sp['idsp']?>" method="post" enctype="multipart/form-data">
+                    <form action="../handle/hdl_suasanpham.php?idsp=<?php echo $sp['idsp'] ?>" method="post"
+                        enctype="multipart/form-data">
                         <div class="row">
 
                             <div class="col-md-4">
@@ -182,25 +183,32 @@ if($haveError) {
                             <?php if ($sp["anhsp"]) {
                                 ?>
                                 <div class="col-md-3 ">
-                                    <img src="../../public/image/uploads/<?php echo $sp["anhsp"] ?>" alt="" class="a-d-d img-old">
+                                    <img src="../../public/image/uploads/<?php echo $sp["anhsp"] ?>" alt=""
+                                        class="a-d-d img-old">
                                 </div>
                                 <canvas class="col-md-3 a-d-d d-none" id="anh">
-                                <?php
-                            }else {
+                                    <?php
+                            } else {
                                 ?>
-                                <canvas class="col-md-3 a-d-d" id="anh">
-                                <?php
+                                    <canvas class="col-md-3 a-d-d" id="anh">
+                                        <?php
                             } ?>
                         </div>
                         <div class="row">
                             <div class="col-md-8">
                                 <label class="form-label">Thông tin khác(từ khoá?thông tin*từ khoá?thông tin):</label>
                                 <textarea type="number" class="form-control" id="exampleFormControlInput1" name="ttkhac"
-                                    value="0"><?php echo $sp["thongtinkhac"]?></textarea>
+                                    value="0"><?php echo $sp["thongtinkhac"] ?></textarea>
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-success" onclick="return confirm('Bạn chắc chắn muốn sửa')">Sửa</button>
+                        <button type="submit" class="btn btn-success"
+                            onclick="return confirm('Bạn chắc chắn muốn sửa')">Sửa</button>
+                        <a href="../handle/hdl_xoasanpham.php?idsp=<?php echo $sp["idsp"] ?>&action=delete  "
+                            class="show"
+                            onclick="return confirm('Bạn có chắc chắn muốn xoá <?php echo $row['tensp'] ?>')">
+                            <div class="btn d-inline-block bgr-error">Xoá</div>
+                        </a>
                     </form>
                 </div>
             </div>
@@ -211,7 +219,7 @@ if($haveError) {
 <?php include './layout/footer.php' ?>
 <script>
     $(document).ready(function () {
-        $("#inp").on("change", function() {
+        $("#inp").on("change", function () {
             $("#anh").removeClass("d-none");
             $("#anh").removeClass("d-none");
             $(".img-old").addClass("border-delete")
