@@ -11,19 +11,10 @@ include_once '../handle/checkAccount.php';
                 <i class="bi bi-bookshelf"></i>Sản phẩm đã tạo
             </div>
             <div class="find">
-                <div class="find-tang ">
-                    <div class="fs-15 fw-500">Tầng:</div>
-                    <select class="form-select " aria-label="Default select example" id="tang">
-                        <option value="0">Tất cả</option>
-                        <?php
-
-                        ?>
-                    </select>
-                </div>
                 <div class="ttp">
                     <div class="fs-15 fw-500">Trạng thái:</div>
                     <nav class="navbar navbar-light ">
-                        <form class="container-fluid justify-content-start pd-0">
+                        <div class="container-fluid justify-content-start pd-0">
                             <a href="./dssanpham.php?tt=0"><button class="btn me-2" type="button">Tất
                                     cả</button></a>
                             <a href="./dssanpham.php?tt=1"><button class="btn me-2" type="button"><img
@@ -38,8 +29,17 @@ include_once '../handle/checkAccount.php';
                             <a href="./dssanpham.php?tt=-1"><button class="btn me-2" type="button"><img
                                         src="../../public/image/icon/delete.png" alt="" class="img-icon">Đã
                                     xoá</button></a>
-                        </form>
+                        </div>
                     </nav>
+                </div>
+                <div class=" " style="width: 70%;">
+                    <div class="fs-15 fw-500">Tìm kiếm:</div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" name="search" required
+                                value="<?php echo $_GET['search'] ?? "" ?>">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="table-sv">
@@ -85,13 +85,17 @@ include_once '../handle/checkAccount.php';
                                     $tt = 7;
                                     break;
                                 case "-1":
-
                                     $sanpham_da_xoa = "sanpham.xoaluc is not null";
                                     break;
                             }
                         }
-                        $sql = "SELECT idsp, tensp, giaban, soluong, trangthai, trangthai.tentrangthai, anhsp, xoaluc FROM sanpham JOIN trangthai on trangthai.id = sanpham.trangthai where $sanpham_da_xoa and sanpham.trangthai = $tt LIMIT ?, ?";
 
+                        $search = "1 = 1";
+                        if (checkRequest($_GET , ["search"])) {
+                            $search = "(sanpham.idsp = '".$_GET['search']."' or sanpham.tensp like '%".$_GET['search']."%')";
+                        } 
+
+                        $sql = "SELECT idsp, tensp, giaban, soluong, trangthai, trangthai.tentrangthai, anhsp, xoaluc FROM sanpham JOIN trangthai on trangthai.id = sanpham.trangthai where $sanpham_da_xoa and sanpham.trangthai = $tt and $search LIMIT ?, ?";
                         $result = query_input($sql, [($page - 1) * $item_one_page, $page * $item_one_page]);
                         if ($result->num_rows == 0) {
                             echo '<div class="bi-text-center">Không có thông tin</div>';
@@ -156,7 +160,6 @@ include_once '../handle/checkAccount.php';
                                             <?php
 
                                         }
-                                        print_r($date);
                                         ?>
                                     </td>
                                 </tr>
@@ -174,6 +177,9 @@ include_once '../handle/checkAccount.php';
 
 <?php include './layout/footer.php' ?>
 <script>
-    var timestamp = new Date().getTime();
-    console.log(timestamp);
+    $("input[name=search]").eq(0).on("change", function () {
+        console.log("object");
+        addParams("search", $("input[name=search]").val().trim());
+        location.reload();
+    })
 </script>

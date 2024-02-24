@@ -33,7 +33,7 @@ include_once '../handle/checkAccount.php';
                         $tensp = " like '%" . $_GET['f'] . "%'";
                     }
 
-                    $sql = "SELECT sanpham.tensp, sanpham.idsp, sanpham.giaban, sanpham.giamgia, sanpham.loaisp, sanpham.anhsp, sanpham.soluong FROM sanpham where sanpham.trangthai in (1, 6) and (sanpham.phanloai $phanloai or sanpham.tensp $tensp)";
+                    $sql = "SELECT sanpham.tensp, sanpham.idsp, sanpham.giaban, sanpham.giamgia, sanpham.loaisp, sanpham.anhsp, sanpham.soluong FROM sanpham where sanpham.xoaluc is null and sanpham.trangthai in (1, 6) and (sanpham.phanloai $phanloai or sanpham.tensp $tensp)";
                     $result = query_no_input($sql);
                     if ($result->num_rows != 0) {
                         while ($row = $result->fetch_assoc()) {
