@@ -14,8 +14,8 @@ if(checkRequest($_GET, ["mh"])) {
 }
 
 // kiểm tra đầu vào
-function checkinput() {
-    if(!checkRequest($_POST, ['idsp', "sl", "giaban"])) {
+function checkinput($ma) {
+    if(!checkRequest($_POST, [$ma, "sl", "giaban"])) {
         return false;
     }
     return true;
@@ -23,7 +23,7 @@ function checkinput() {
 
 function bansanpham() {
     // kiểm tra đầu vào
-    if(checkinput()) {
+    if(checkinput("idsp")) {
         // update số lượng
         $sql = "UPDATE sanpham SET soluong = soluong - ? WHERE idsp = ?";
         $update = query_input($sql, [$_POST['sl'], $_POST['idsp']]);
@@ -49,26 +49,26 @@ function bansanpham() {
 
 function banlinhkien() {
     // kiểm tra đầu vào
-    if(checkinput()) {
+    if(checkinput("malk")) {
         // update số lượng
         $sql = "UPDATE linhkien SET soluong = soluong - ? WHERE malinhkien = ?";
-        $update = query_input($sql, [$_POST['sl'], $_POST['idsp']]);
+        $update = query_input($sql, [$_POST['sl'], $_POST['malk']]);
         
         if($update) {
             // thêm bảng đã bán
             $sql = "INSERT into linhkiendaban(malk, giaban, gianhap, soluong, banluc, tenkhachhang) values(?, ?, ?, ?, ?, ?)";
             date_default_timezone_set('Asia/Ho_Chi_Minh');
-            $add = query_input($sql, [$_POST['idsp'], $_POST['giaban'], $_POST['gn'], $_POST['sl'], date("Y-m-d H:i:s"), $_POST['kh']]);
+            $add = query_input($sql, [$_POST['malk'], $_POST['giaban'], $_POST['gn'], $_POST['sl'], date("Y-m-d H:i:s"), $_POST['kh']]);
             if($add) {
-                header("Location: ../page/sanpham.php?status=200&message=Đã bán&id=".$_POST['idsp']);
+                header("Location: ../page/linhkien.php?status=200&message=Đã bán&malk=".$_POST['malk']);
             }else {
-                header("Location: ../page/sanpham.php?status=400&message=Có lỗi khi bán&id=".$_POST['idsp']);
+                header("Location: ../page/linhkien.php?status=400&message=Có lỗi khi bán&malk=".$_POST['malk']);
             }
         }else {
-            header("Location: ../page/sanpham.php?status=400&message=Có lỗi khi bán&id=".$_POST['idsp']);
+            header("Location: ../page/linhkien.php?status=400&message=Có lỗi khi bán&malk=".$_POST['malk']);
         }
     }else {
-        header("Location: ../page/cuahang.php");
+        header("Location: ../page/cuahanglinhkien.php");
     }
 }
 ?>
