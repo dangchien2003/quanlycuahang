@@ -24,7 +24,7 @@
 
         </ul>
         <li class="parent-menu position-relative">
-            <i class="bi bi-view-list"></i>
+            <i class="bi bi-boxes"></i>
             Quản lý sản phẩm
             <span class="arrow position-absolute">
                 <i class="bi bi-chevron-left left "></i>
@@ -34,7 +34,7 @@
         <ul class="list-unstyled sub-menu">
             <a href="./dssanpham.php">
                 <li>
-                    <i class="bi bi-shop-window"></i>
+                    <i class="bi bi-view-list"></i>
                     Sản phẩm
                 </li>
             </a>

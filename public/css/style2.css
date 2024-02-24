@@ -19,6 +19,7 @@ a {
     height: 150px;
     object-fit: contain;
     padding: 5px 0;
+    max-width: 100%;
 }
 
 .danhsachsanpham .sanpham .tensanpham {

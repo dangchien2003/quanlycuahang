@@ -1,5 +1,6 @@
 <?php
 include 'helper.php';
+function add() {
 try {
 
     if (checkRequest($_POST, ["tensp"])) {
@@ -38,6 +39,7 @@ try {
 } catch (Exception $e) {
     log_error($e->getMessage());
     header("Location: ../page/themmathang.php?status=400&message=Có lỗi xảy ra");
+}
 }
 
 function getSelect($tenc, $tenp, $colum = "", $table = "")
