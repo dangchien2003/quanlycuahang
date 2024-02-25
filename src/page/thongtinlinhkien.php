@@ -42,7 +42,7 @@ if ($haveError) {
                         <div class="row">
                             <div class="col-md-4">
                                 <label for="" class="form-label">Mã linh kiện:</label>
-                                <input type="text" class="form-control" id="" name="malk" value="<?php echo $sp['malinhkien'] ?>" required>
+                                <input type="text" class="form-control" id="" value="<?php echo $sp['malinhkien'] ?>" required readonly>
                             </div>
                             <div class="col-md-4">
                                 <label for="" class="form-label">Tên linh kiện:</label>
@@ -100,6 +100,7 @@ if ($haveError) {
                             <div class="row">
                                 <div class="d-none">
                                     <input type="password" value="<?php echo $sp["anh"] ?>" name="tenanh">
+                                    <input type="text" class="form-control" id="" name="malk" value="<?php echo $sp['malinhkien'] ?>" required>
                                 </div>
                             </div>
                         </div>
@@ -140,7 +141,7 @@ if ($haveError) {
                             ?>
                             <a href="../handle/hdl_boxoalinhkien.php?malk=<?php echo $sp["malinhkien"] ?>&action=recall  "
                                 class="show"
-                                onclick="return confirm('Bạn có chắc chắn muốn bỏ xoá <?php echo $sp['tensp'] ?>')">
+                                onclick="return confirm('Bạn có chắc chắn muốn bỏ xoá <?php echo $sp['tenlinhkien'] ?>')">
                                 <div class="btn d-inline-block bgr-wait">Mở khoá</div>
                             </a>
                             <?php
@@ -148,7 +149,7 @@ if ($haveError) {
                             ?>
                             <a href="../handle/hdl_xoalinhkien.php?malk=<?php echo $sp["malinhkien"] ?>&action=delete"
                                 class="show"
-                                onclick="return confirm('Bạn có chắc chắn muốn xoá <?php echo $sp['tensp'] ?>')">
+                                onclick="return confirm('Bạn có chắc chắn muốn xoá <?php echo $sp['tenlinhkien'] ?>')">
                                 <div class="btn d-inline-block bgr-error">Xoá</div>
                             </a>
                             <?php

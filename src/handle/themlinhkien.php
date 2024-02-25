@@ -30,7 +30,7 @@ try {
             }
             header("Location: ../page/themlinhkien.php?status=200&message=Đã tạo thành công");
         } else {
-            header("Location: ../page/themlinhkien.php?status=400&message=Tạo thất bại");
+            header("Location: ../page/themlinhkien.php?status=400&message=Có thể mã linh kiện đã tồn tại");
         }
 
     } else {
