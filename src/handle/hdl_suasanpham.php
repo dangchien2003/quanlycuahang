@@ -22,7 +22,7 @@ if (checkRequest($_POST, ["idsp"]) && checkRequest($_GET, ["idsp"])) {
 
             $update = query_input($sql, [$ten, $phanloai, $hang, $loaihang, $sl, $giaban, $trangthai, $ttkhac, $giamgia, $gianhap, $_POST['idsp']]);
             if ($update) {
-                $name_file = uploadIMG();
+                $name_file = uploadIMG("SP");
                 if ($name_file) {
                     $sql = "UPDATE sanpham set anhsp = ? where idsp = ?";
                     $update = query_input($sql, [$name_file, $_POST['idsp']]);
@@ -71,65 +71,4 @@ function getThongTinKhac()
     }
 }
 
-function remove_img($name, $location = "../../public/image/uploads/") {
-    if(trim($name)) {
-        $target_file = $location.$name;
-        $file_exisit = false;
-        // Kiểm tra nếu tập tin đã tồn tại
-        if (file_exists($target_file)) {
-            $file_exisit = true;
-        }
-
-        if($file_exisit) {
-            if(!unlink($target_file)) {
-                return false;
-            }
-        }
-    }
-    return true;
-}
-
-function uploadIMG()
-{
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["anhsp"])) {
-
-        $file_name = $_FILES['anhsp']['name'];
-        $path_info = pathinfo($file_name);
-        $imageFileType = strtolower($path_info['extension']);
-
-        $target_dir = "../../public/image/uploads/";  // Thư mục nơi bạn muốn lưu trữ tệp tin
-        $file_name = "SP" . getTimestamp(0) . "." . $imageFileType;
-        $target_file = $target_dir . $file_name;
-        $uploadOk = 1;
-
-
-        // Kiểm tra xem tệp tin đã tồn tại chưa
-        // if (file_exists($target_file)) {
-        //     echo "Sorry, file already exists.";
-        //     $uploadOk = 0;
-        // }
-
-        // Kiểm tra kích thước tệp tin (giả sử giới hạn là 5MB)
-        if ($_FILES["file"]["size"] > 5 * 1024 * 1024) {
-            $uploadOk = 0;
-        }
-
-        // Cho phép các định dạng file nhất định (ở đây là chỉ cho phép hình ảnh)
-        $allowedFormats = array("jpg", "jpeg", "png");
-        if (!in_array($imageFileType, $allowedFormats)) {
-            $uploadOk = 0;
-        }
-
-        // Kiểm tra xem $uploadOk có bằng 0 không (có lỗi xảy ra không)
-        if ($uploadOk) {
-            // Nếu mọi thứ đều đúng, thì tiến hành tải lên
-            if (move_uploaded_file($_FILES["anhsp"]["tmp_name"], $target_file)) {
-                return $file_name;
-            }
-        } else {
-            echo "upload error";
-            return null;
-        }
-    }
-}
 ?>

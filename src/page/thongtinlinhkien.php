@@ -38,7 +38,7 @@ if ($haveError) {
                     </div>
                 </div>
                 <div class="col-md-7">
-                    <form action="../handle/themlinhkien.php" method="post" enctype="multipart/form-data">
+                    <form action="../handle/hdl_sualinhkien.php?malk=<?php echo $sp['malinhkien'] ?>" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-4">
                                 <label for="" class="form-label">Mã linh kiện:</label>
