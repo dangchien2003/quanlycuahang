@@ -151,7 +151,7 @@ include_once '../handle/checkAccount.php';
                                             <?php
                                         } else {
                                             ?>
-                                            <a href="../handle/hdl_xoasanpham.php?idsp=<?php echo $row['idsp'] ?>&action=delete  "
+                                            <a href="../handle/hdl_xoalinhkien.php?malk=<?php echo $row['malinhkien'] ?>&action=delete  "
                                                 class="show"
                                                 onclick="return confirm('Bạn có chắc chắn muốn xoá <?php echo $row['tensp'] ?>')">
                                                 <div class="btn-tt d-inline-block bgr-error">Xoá</div>
