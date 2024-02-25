@@ -132,7 +132,7 @@ include_once '../handle/checkAccount.php';
                                             style="height: 70px;">
                                     </td>
                                     <td>
-                                        <a href="./thongtinlinhkien.php?id=<?php echo $row['malinhkien'] ?>&action=show  "
+                                        <a href="./thongtinlinhkien.php?malk=<?php echo $row['malinhkien'] ?>&action=show  "
                                             class="show">
                                             <div class="btn-tt d-inline-block bgr-ok">Xem</div>
                                         </a>
