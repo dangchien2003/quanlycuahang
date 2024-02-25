@@ -15,18 +15,17 @@ include_once '../handle/checkAccount.php';
                     <div class="fs-15 fw-500">Trạng thái:</div>
                     <nav class="navbar navbar-light ">
                         <div class="container-fluid justify-content-start pd-0">
-                            <a href="./dssanpham.php?tt=0"><button class="btn me-2" type="button">Tất
+                            <a href="./dslinhkien.php?tt=0"><button class="btn me-2" type="button">Tất
                                     cả</button></a>
-                            <a href="./dssanpham.php?tt=1"><button class="btn me-2" type="button"><img
-                                        src="../../public/image/icon/buy.png" alt="" class="img-icon">Đang
-                                    bán</button></a>
-                            <a href="./dssanpham.php?tt=7"><button class="btn me-2" type="button"><img
+                            <a href="./dslinhkien.php?tt=6"><button class="btn me-2" type="button"><img
+                                        src="../../public/image/icon/buy.png" alt="" class="img-icon">Còn hàng</button></a>
+                            <a href="./dslinhkien.php?tt=7"><button class="btn me-2" type="button"><img
                                         src="../../public/image/icon/box.png" alt="" class="img-icon">Đã
                                     hết</button></a>
-                            <a href="./dssanpham.php?tt=2"><button class="btn me-2" type="button"><img
+                            <a href="./dslinhkien.php?tt=2"><button class="btn me-2" type="button"><img
                                         src="../../public/image/icon/empty-cart.png" alt="" class="img-icon">Ngừng
                                     bán</button></a>
-                            <a href="./dssanpham.php?tt=-1"><button class="btn me-2" type="button"><img
+                            <a href="./dslinhkien.php?tt=-1"><button class="btn me-2" type="button"><img
                                         src="../../public/image/icon/delete.png" alt="" class="img-icon">Đã
                                     xoá</button></a>
                         </div>
@@ -46,8 +45,9 @@ include_once '../handle/checkAccount.php';
                 <table class="table table-hover d-block">
                     <thead>
                         <tr>
-                            <th scope="col" style="width: 5%;">Mã SP</th>
-                            <th scope="col" style="width: 15%;">Tên SP</th>
+                            <th scope="col" style="width: 8%;">Mã LK</th>
+                            <th scope="col" style="width: 12%;">Tên LK</th>
+                            <th scope="col" style="width: 8%;">Chỉ số</th>
                             <th scope="col" style="width: 10%;">Giá bán</th>
                             <th scope="col" style="width: 5%;">Giảm</th>
                             <th scope="col" style="width: 10%;">Số lượng</th>
@@ -62,7 +62,7 @@ include_once '../handle/checkAccount.php';
                         $item_one_page = 20;
                         // $result = null;
                         $page = 1;
-                        $tt = "sanpham.trangthai";
+                        $tt = "linhkien.trangthai";
                         // $t = "phong.tang";
                         // if(checkRequest($_GET, ["t"])) {
                         //     $t = $_GET["t"];
@@ -72,11 +72,11 @@ include_once '../handle/checkAccount.php';
                             $page = $_GET["page"];
                         }
 
-                        $sanpham_da_xoa = "sanpham.xoaluc is null";
+                        $linhkien_da_xoa = "linhkien.xoaluc is null";
                         if (checkRequest($_GET, ["tt"], true)) {
                             switch ($_GET["tt"]) {
-                                case "1":
-                                    $tt = 1;
+                                case "6":
+                                    $tt = 6;
                                     break;
                                 case "2":
                                     $tt = 2;
@@ -85,17 +85,17 @@ include_once '../handle/checkAccount.php';
                                     $tt = 7;
                                     break;
                                 case "-1":
-                                    $sanpham_da_xoa = "sanpham.xoaluc is not null";
+                                    $linhkien_da_xoa = "linhkien.xoaluc is not null";
                                     break;
                             }
                         }
 
                         $search = "1 = 1";
                         if (checkRequest($_GET , ["search"])) {
-                            $search = "(sanpham.idsp = '".$_GET['search']."' or sanpham.tensp like '%".$_GET['search']."%')";
+                            $search = "(linhkien.malinhkien = '".$_GET['search']."' or linhkien.tenlinhkien like '%".$_GET['search']."%')";
                         } 
 
-                        $sql = "SELECT idsp, tensp, giaban, soluong, trangthai, trangthai.tentrangthai, anhsp, xoaluc FROM sanpham JOIN trangthai on trangthai.id = sanpham.trangthai where $sanpham_da_xoa and sanpham.trangthai = $tt and $search LIMIT ?, ?";
+                        $sql = "SELECT malinhkien, tenlinhkien, chiso, giaban, soluong, trangthai, trangthai.tentrangthai, anh, xoaluc FROM linhkien JOIN trangthai on trangthai.id = linhkien.trangthai where $linhkien_da_xoa and linhkien.trangthai = $tt and $search LIMIT ?, ?";
                         $result = query_input($sql, [($page - 1) * $item_one_page, $page * $item_one_page]);
                         if ($result->num_rows == 0) {
                             echo '<div class="bi-text-center">Không có thông tin</div>';
@@ -104,10 +104,13 @@ include_once '../handle/checkAccount.php';
                                 ?>
                                 <tr>
                                     <td scope="row" style="font-weight: bold;">
-                                        <?php echo $row['idsp'] ?>
+                                        <?php echo $row['malinhkien'] ?>
                                     </td>
                                     <td>
-                                        <?php echo $row['tensp'] ?>
+                                        <?php echo $row['tenlinhkien'] ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['chiso'] ?>
                                     </td>
                                     <td>
                                         <?php echo $row['giaban'] ?>
@@ -125,11 +128,11 @@ include_once '../handle/checkAccount.php';
                                         </div>
                                     </td>
                                     <td>
-                                        <img src="../../public/image/uploads/<?php echo $row['anhsp'] ?>" alt=""
+                                        <img src="../../public/image/uploads/<?php echo $row['anh'] ?>" alt=""
                                             style="height: 70px;">
                                     </td>
                                     <td>
-                                        <a href="./thongtinsanpham.php?id=<?php echo $row['idsp'] ?>&action=show  "
+                                        <a href="./thongtinlinhkien.php?id=<?php echo $row['malinhkien'] ?>&action=show  "
                                             class="show">
                                             <div class="btn-tt d-inline-block bgr-ok">Xem</div>
                                         </a>
@@ -140,7 +143,7 @@ include_once '../handle/checkAccount.php';
                                             <a href="#" class="show">
                                                 <div class="btn-tt d-inline-block bgr-error" style="width: 200px;">
                                                     <?php
-                                                        echo getTime($row['xoaluc'], 'd-m-Y H:i:s');
+                                                    echo getTime($row['xoaluc'], 'd-m-Y H:i:s');
                                                     ?>
                                                 </div>
                                             </a>
@@ -174,7 +177,6 @@ include_once '../handle/checkAccount.php';
 <?php include './layout/footer.php' ?>
 <script>
     $("input[name=search]").eq(0).on("change", function () {
-        console.log("object");
         addParams("search", $("input[name=search]").val().trim());
         location.reload();
     })
