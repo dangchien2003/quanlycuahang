@@ -46,13 +46,7 @@ if ($error['e']) {
                             <?php
                         } ?>
                     </div>
-                    <span class="">Sản phẩm : <span>
-                            <span>
-                                <?php if ($row['loaisp'] == 1)
-                                    echo "Mới";
-                                else
-                                    echo "Cũ"; ?>
-                            </span>
+                    <span class="">Sản phẩm : Mới<span>
                             <?php if ($row['giamgia']) {
                                 ?>
                                 <span> |
@@ -99,6 +93,7 @@ if ($error['e']) {
                 <h5>Thông tin khác</h5>
                 <ul>
                     <li>Chỉ số: <?php echo $row['chiso']?></li>
+                    <li>Công dụng: <?php echo $row['congdung']?></li>
                     <?php 
                     if($row['thongtinkhac']) {
                         $li = explode('*',$row['thongtinkhac']);

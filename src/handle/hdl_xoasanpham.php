@@ -47,23 +47,6 @@ if (checkRequest($_GET, ["idsp", "action"])) {
 }
 
 
-function remove_img($name, $location = "../../public/image/uploads/")
-{
-    if (trim($name)) {
-        $target_file = $location . $name;
-        $file_exisit = false;
-        // Kiểm tra nếu tập tin đã tồn tại
-        if (file_exists($target_file)) {
-            $file_exisit = true;
-        }
 
-        if ($file_exisit) {
-            if (!unlink($target_file)) {
-                return false;
-            }
-        }
-    }
-    return true;
-}
 
 ?>
