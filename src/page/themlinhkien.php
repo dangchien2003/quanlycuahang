@@ -43,7 +43,7 @@ include_once '../handle/checkAccount.php';
                             </div>
                             <div class="col-md-3">
                                 <label for="" class="form-label">Số lượng:</label>
-                                <input type="number" class="form-control" id="" name="sl" value="0" required>
+                                <input type="number" class="form-control" id="" name="sl" value="0" required oninput="this.val(this.val()*1)">
                             </div>
                         </div>
                         <div class="row">

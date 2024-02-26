@@ -2,6 +2,13 @@ a {
     text-decoration: none;
     color: black; 
 }
+
+thead {
+    position: sticky;
+    top: 0;
+    background-color: white !important;
+    border-bottom: 1px solid black;
+}
 .border-delete {
     border: 1px solid red !important;
 }

@@ -5,6 +5,7 @@
         $psv = "";
         $dbsv = "php_qlcuahang";
         $GLOBALS['conn'] = new mysqli($svn, $usv, $psv, $dbsv);
+        $GLOBALS['conn']->set_charset("utf8");
         if($GLOBALS['conn']->connect_error) {
             header("location ../page/dangnhap.php?status=400&message=Lỗi server");
         }
@@ -16,6 +17,7 @@
     //     $psv = "chiennkoi123";
     //     $dbsv = "if0_35868743_qlcuahang";
     //     $GLOBALS['conn'] = new mysqli($svn, $usv, $psv, $dbsv);
+    //     $GLOBALS['conn']->set_charset("utf8");
     //     if($GLOBALS['conn']->connect_error) {
     //         header("location ../page/dangnhap.php?status=400&message=Lỗi server");
     //     }

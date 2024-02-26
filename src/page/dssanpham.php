@@ -33,7 +33,7 @@ include_once '../handle/checkAccount.php';
                     </nav>
                 </div>
                 <div class=" " style="width: 70%;">
-                    <div class="fs-15 fw-500">Tìm kiếm:</div>
+                    <div class="fs-15 fw-500">Tìm kiếm(nhấn ra ngoài để tìm):</div>
                     <div class="row">
                         <div class="col-md-4">
                             <input type="text" class="form-control" name="search" required
@@ -82,7 +82,7 @@ include_once '../handle/checkAccount.php';
                                     $tt = 2;
                                     break;
                                 case "7":
-                                    $tt = 7;
+                                    $tt = "7 or (soluong = 0 and sanpham.trangthai != 2)";
                                     break;
                                 case "-1":
                                     $sanpham_da_xoa = "sanpham.xoaluc is not null";
@@ -95,7 +95,7 @@ include_once '../handle/checkAccount.php';
                             $search = "(sanpham.idsp = '".$_GET['search']."' or sanpham.tensp like '%".$_GET['search']."%')";
                         } 
 
-                        $sql = "SELECT idsp, tensp, giaban, soluong, trangthai, trangthai.tentrangthai, anhsp, xoaluc FROM sanpham JOIN trangthai on trangthai.id = sanpham.trangthai where $sanpham_da_xoa and sanpham.trangthai = $tt and $search LIMIT ?, ?";
+                        $sql = "SELECT idsp, tensp, giaban, giamgia, soluong, trangthai, trangthai.tentrangthai, anhsp, xoaluc FROM sanpham JOIN trangthai on trangthai.id = sanpham.trangthai where $sanpham_da_xoa and sanpham.trangthai = $tt and $search LIMIT ?, ?";
                         $result = query_input($sql, [($page - 1) * $item_one_page, $page * $item_one_page]);
                         if ($result->num_rows == 0) {
                             echo '<div class="bi-text-center">Không có thông tin</div>';
@@ -113,10 +113,10 @@ include_once '../handle/checkAccount.php';
                                         <?php echo $row['giaban'] ?>
                                     </td>
                                     <td>
-                                        <?php echo $row['soluong'] ?>
+                                        <?php echo $row['giamgia'] ?>
                                     </td>
                                     <td>
-                                        <?php echo $row['trangthai'] ?>
+                                        <?php echo $row['soluong'] ?>
                                     </td>
 
                                     <td>

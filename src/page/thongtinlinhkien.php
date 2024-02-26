@@ -2,8 +2,8 @@
 include_once '../handle/checkAccount.php';
 $haveError = false;
 if (checkRequest($_GET, ["malk"])) {
-    $sql = "SELECT * from linhkien where malinhkien = ?";
-    $result = query_input($sql, [$_GET['malk']]);
+    $sql = "SELECT * from linhkien where malinhkien = ? or taoluc = ?";
+    $result = query_input($sql, [$_GET['malk'], $_GET['malk']]);
     $sp = null;
     $spIsEmpty = false;
     if ($result->num_rows > 0) {

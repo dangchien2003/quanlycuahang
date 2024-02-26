@@ -27,10 +27,10 @@ try {
                 $sql = "UPDATE sanpham set anhsp = ? where taoluc = ?";
                 $update = query_input($sql, [$name_file, $taoluc]);
                 if (!$update) {
-                    header("Location: ../page/themmathang.php?status=200&message=Thành công và không thể lưu ảnh DB");
+                    header("Location: ../page/thongtinsanpham.php?status=200&message=Thành công và không thể lưu ảnh DB&id=".$taoluc);
                 }
             }
-            header("Location: ../page/themmathang.php?status=200&message=Đã tạo thành công");
+            header("Location: ../page/thongtinsanpham.php?status=200&message=Đã tạo thành công?id=".$taoluc);
         } else {
             header("Location: ../page/themmathang.php?status=400&message=Tạo thất bại");
         }

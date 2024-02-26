@@ -444,7 +444,7 @@ header .sl-tb {
 }
 
 .table-sv table {
-    max-height: 550px;
+    max-height: 600px;
     overflow-y: scroll;
 }
 .table-sv table thead, tbody {

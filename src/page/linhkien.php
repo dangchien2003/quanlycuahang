@@ -73,7 +73,7 @@ if ($error['e']) {
                                 <span>
                                     <script> var max_sl = <?php echo $row['soluong'] ?>; </script>
                                     <i class="bi bi-chevron-down"></i>
-                                    <input type="number" value="1" class="btn me-2" style="width: 50px; height: 30px"
+                                    <input type="number" value="1" class="btn me-2" style="width: 60px; height: 30px"
                                         id="sl" name="sl">
                                     <i class="bi bi-chevron-up"></i>
                                 </span>

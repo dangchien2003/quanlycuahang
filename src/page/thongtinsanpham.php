@@ -1,9 +1,10 @@
 <?php include './layout/header.php';
 include_once '../handle/checkAccount.php';
+// die();
 $haveError = false;
 if (checkRequest($_GET, ["id"])) {
-    $sql = "SELECT * from sanpham where idsp = ?";
-    $result = query_input($sql, [$_GET['id']]);
+    $sql = "SELECT * from sanpham where idsp = ? or taoluc = ?";
+    $result = query_input($sql, [$_GET['id'], $_GET['id']]);
     $sp = null;
     $spIsEmpty = false;
     if ($result->num_rows > 0) {
