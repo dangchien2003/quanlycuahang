@@ -19,6 +19,20 @@ include_once '../handle/checkAccount.php';
                     </div>
                 </div>
                 <div class="col-md-7">
+                    <form action="../handle/themlkbyexcel.php" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label for="" class="form-label">Tải tệp lên:</label>
+                                <input type="file" class="form-control" id="" name="malk" value="" required accept=".xlsx, .xls">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="form-label"></label>
+                                <button type="submit" class="btn btn-success" style="margin-right: 5px">Tạo bằng excel</button>
+                                <a href="../handle/tai_excel_template.php?object=sp" class="btn btn-info" id="download_file">Tải
+                                    mẫu</a>
+                            </div>
+                        </div>
+                    </form>
                     <form action="../handle/themmathang.php" method="post" enctype="multipart/form-data">
                         <div class="row">
 
@@ -96,7 +110,7 @@ include_once '../handle/checkAccount.php';
                             <div class="col-md-3">
                                 <label class="form-label">Giá bán:</label>
                                 <input type="number" class="form-control" id="exampleFormControlInput1" name="giaban"
-                                    value="0" required >
+                                    value="0" required>
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Giá nhập:</label>
@@ -162,7 +176,7 @@ include_once '../handle/checkAccount.php';
         function checkoninput(input_names) {
             input_names.forEach(element => {
                 $(`input[name=${element}]`).on("input", function (event) {
-                    $(this).val($(this).val()*1);
+                    $(this).val($(this).val() * 1);
                 })
             });
         }

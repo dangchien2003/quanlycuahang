@@ -19,8 +19,22 @@ include_once '../handle/checkAccount.php';
                     </div>
                 </div>
                 <div class="col-md-7">
+                    <form action="../handle/themlkbyexcel.php" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label for="" class="form-label">Tải tệp lên:</label>
+                                <input type="file" class="form-control" id="" name="malk" value="" required accept=".xlsx, .xls">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="form-label"></label>
+                                <button type="submit" class="btn btn-success" style="margin-right: 5px">Tạo bằng excel</button>
+                                <a href="../handle/tai_excel_template.php?object=lk" class="btn btn-info" id="download_file">Tải mẫu</a>
+                            </div>
+                        </div>
+                    </form>
                     <form action="../handle/themlinhkien.php" method="post" enctype="multipart/form-data">
                         <div class="row">
+                            
                             <div class="col-md-4">
                                 <label for="" class="form-label">Mã linh kiện:</label>
                                 <input type="text" class="form-control" id="" name="malk" value="" required>
@@ -29,11 +43,11 @@ include_once '../handle/checkAccount.php';
                                 <label for="" class="form-label">Tên linh kiện:</label>
                                 <input type="text" class="form-control" id="" name="tenlk" required>
                             </div>
-                            
+
 
                         </div>
                         <div class="row">
-                            <div class="col-md-4" >
+                            <div class="col-md-4">
                                 <label for="" class="form-label">Chỉ số</label>
                                 <input type="text" class="form-control" id="" name="chiso" value="">
                             </div>
@@ -43,21 +57,25 @@ include_once '../handle/checkAccount.php';
                             </div>
                             <div class="col-md-3">
                                 <label for="" class="form-label">Số lượng:</label>
-                                <input type="number" class="form-control" id="" name="sl" value="0" required oninput="this.value = this.value*1">
+                                <input type="number" class="form-control" id="" name="sl" value="0" required
+                                    oninput="this.value = this.value*1">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-3">
                                 <label class="form-label">Giá bán:</label>
-                                <input type="number" class="form-control" id="" name="giaban" value="0" required oninput="this.value = this.value*1">
+                                <input type="number" class="form-control" id="" name="giaban" value="0" required
+                                    oninput="this.value = this.value*1">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Giá nhập:</label>
-                                <input type="number" class="form-control" id="" name="gianhap" value="0" required oninput="this.value = this.value*1">
+                                <input type="number" class="form-control" id="" name="gianhap" value="0" required
+                                    oninput="this.value = this.value*1">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Giảm giá(%):</label>
-                                <input type="number" class="form-control" id="" name="giamgia" value="0" required oninput="this.value = this.value*1">
+                                <input type="number" class="form-control" id="" name="giamgia" value="0" required
+                                    oninput="this.value = this.value*1">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Trạng thái:</label>
@@ -128,6 +146,10 @@ include_once '../handle/checkAccount.php';
                 $('input[name="sl"]').val(0)
             }
         })
+
+        // $("#download_file").click(function () {
+        //     callServer("../handle/tai_file.php", "post", [{key: "object", value: "lk"}]);
+        // })
     })
 
     $("#inp").on("input", function () {

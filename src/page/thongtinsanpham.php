@@ -1,6 +1,5 @@
 <?php include './layout/header.php';
 include_once '../handle/checkAccount.php';
-// die();
 $haveError = false;
 if (checkRequest($_GET, ["id"])) {
     $sql = "SELECT * from sanpham where idsp = ? or taoluc = ?";
