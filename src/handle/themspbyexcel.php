@@ -14,7 +14,12 @@ if ($excel_name) {
     if(!$inserted_row) {
         $return_status = 400;
         $return_message.= "Không thể thêm";
-    }else {
+    }
+    else if($inserted_row == -1) {
+        $return_status = 400;
+        $return_message.= "Không có dữ liệu thêm";
+    }
+    else {
         $return_message.= "Đã thêm $inserted_row sản phẩm";
     }
     if(!remove_file($filePath)) {
@@ -65,6 +70,9 @@ function insert($filePath)
     $spreadsheet = IOFactory::load($filePath);
     $sheet = $spreadsheet->getSheet(0);
     $highestRow = $sheet->getHighestRow();
+    if($highestRow <= 4) {
+        return -1;
+    }
     $sql = "insert into sanpham(tensp, phanloai, hangsx, loaisp, soluong, gianhap, giaban, giamgia, trangthai, thongtinkhac, xoaluc, taoluc) VALUES ";
     $values = [];
     $stop_loop = false;
