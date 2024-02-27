@@ -28,7 +28,7 @@ try {
                     header("Location: ../page/themlinhkien.php?status=200&message=Thành công và không thể lưu ảnh DB&malk=".$taoluc);
                 }
             }
-            header("Location: ../page/thongtinlinhkien.php?status=200&message=Đã tạo thành công?malk=".$taoluc);
+            header("Location: ../page/thongtinlinhkien.php?status=200&message=Đã tạo thành công&malk=".$taoluc);
         } else {
             header("Location: ../page/themlinhkien.php?status=400&message=Có thể mã linh kiện đã tồn tại");
         }
