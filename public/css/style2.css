@@ -17,7 +17,7 @@ thead {
     color: black;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 180px;
-    height: 250px;
+    height: 280px;
     border: 1px solid #ececec;
     margin: 5px;
 }
@@ -57,21 +57,26 @@ thead {
     display: inline-block;
 }
 
+.hethang {
+    color: red;
+    height: 30px;
+}
+
 .danhsachsanpham .sanpham .sukien div .giam {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     background-color: #F44336;
     right: 5px;
     top: 5px;
-    font-size: 12px;
+    font-size: 13px;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 20px;
+    line-height: 30px;
     font-weight: 500;
 }
 .danhsachsanpham .sanpham .sukien img {
-    height: 30px;
+    height: 40px;
 }
 
 

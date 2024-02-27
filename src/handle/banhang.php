@@ -9,13 +9,13 @@ if(checkRequest($_GET, ["mh"])) {
             banlinhkien();
             break;
         default: 
-            header("Location: ../page/cuahang.php");
+            header("Location: ../page/cuahang.php?status=400&message=Có lỗi xảy ra");
     }
 }
 
 // kiểm tra đầu vào
 function checkinput($ma) {
-    if(!checkRequest($_POST, [$ma, "sl", "giaban"])) {
+    if(!checkRequest($_POST, [$ma, "sl", "giaban"], true)) {
         return false;
     }
     return true;
@@ -42,7 +42,7 @@ function bansanpham() {
             header("Location: ../page/sanpham.php?status=400&message=Có lỗi khi bán&id=".$_POST['idsp']);
         }
     }else {
-        header("Location: ../page/cuahang.php");
+        header("Location: ../page/cuahang.php?status=400&message=Có lỗi");
     }
     
 }
@@ -68,7 +68,7 @@ function banlinhkien() {
             header("Location: ../page/linhkien.php?status=400&message=Có lỗi khi bán&malk=".$_POST['malk']);
         }
     }else {
-        header("Location: ../page/cuahanglinhkien.php");
+        header("Location: ../page/cuahanglinhkien.php?status=400&message=Có lỗi");
     }
 }
 ?>

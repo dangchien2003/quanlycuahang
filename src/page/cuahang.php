@@ -57,6 +57,11 @@ include_once '../handle/checkAccount.php';
                                         <?php
                                     } ?>
                                 </div>
+                                <div class="hethang"><?php if (!$row['soluong']) {
+                                            ?>
+                                            Hết hàng
+                                            <?php
+                                        } ?></div>
                                 <div class="sukien">
                                     <div>
                                         <?php if (!$row['soluong']) {

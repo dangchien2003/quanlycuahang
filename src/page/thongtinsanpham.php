@@ -82,8 +82,7 @@ if ($haveError) {
 
                             <div class="col-md-3">
                                 <label for="exampleFormControlInput1" class="form-label">Số lượng:</label>
-                                <input type="number" class="form-control" id="exampleFormControlInput1" name="sl"
-                                    value="0" value="<?php echo $sp['soluong'] ?>" required>
+                                <input type="number" class="form-control" id="exampleFormControlInput1" name="sl" value="<?php echo $sp['soluong'] ?>" required>
                             </div>
                             <?php
                             if ($sp['loaisp']) {
