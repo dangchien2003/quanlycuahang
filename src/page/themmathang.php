@@ -24,7 +24,8 @@ include_once '../handle/checkAccount.php';
 
                             <div class="col-md-4">
                                 <label for="exampleFormControlInput1" class="form-label">Tên sản phẩm:</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1" name="tensp" required>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" name="tensp"
+                                    required>
                             </div>
                             <div class="col-md-4">
                                 <label for="exampleFormControlInput1" class="form-label">Hãng sản xuất:</label>
@@ -58,7 +59,8 @@ include_once '../handle/checkAccount.php';
 
                             <div class="col-md-3">
                                 <label for="exampleFormControlInput1" class="form-label">Số lượng:</label>
-                                <input type="number" class="form-control" id="exampleFormControlInput1" name="sl" value="0" required>
+                                <input type="number" class="form-control" id="exampleFormControlInput1" name="sl"
+                                    value="0" required oninput="this.value = this.value*1">
                             </div>
                             <div class="col-md-2">
                                 <label for="exampleFormControlInput1" class="form-label">Loại hàng:</label>
@@ -93,16 +95,18 @@ include_once '../handle/checkAccount.php';
                         <div class="row">
                             <div class="col-md-3">
                                 <label class="form-label">Giá bán:</label>
-                                <input type="number" class="form-control" id="exampleFormControlInput1" name="giaban" value="0" required>
+                                <input type="number" class="form-control" id="exampleFormControlInput1" name="giaban"
+                                    value="0" required >
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Giá nhập:</label>
-                                <input type="number" class="form-control" id="exampleFormControlInput1" name="gianhap" value="0" required>
+                                <input type="number" class="form-control" id="exampleFormControlInput1" name="gianhap"
+                                    value="0" required oninput="this.value = this.value*1">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Giảm giá(%):</label>
                                 <input type="number" class="form-control" id="exampleFormControlInput1" name="giamgia"
-                                    value="0" required>
+                                    value="0" required oninput="this.value = this.value*1">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Trạng thái:</label>
@@ -121,9 +125,9 @@ include_once '../handle/checkAccount.php';
                                     }
                                     ?>
                                 </select>
-                        </div>
-                        <div class="row">
-                            
+                            </div>
+                            <div class="row">
+
                             </div>
                         </div>
                         <div class="row info-student">
@@ -132,7 +136,7 @@ include_once '../handle/checkAccount.php';
                                 <input type="file" name="anhsp" id="inp">
                             </div>
                             <canvas class="col-md-3 a-d-d" id="anh">
-                                
+
                             </canvas>
                         </div>
                         <div class="row">
@@ -142,7 +146,7 @@ include_once '../handle/checkAccount.php';
                                     value="0"></textarea>
                             </div>
                         </div>
-                        
+
                         <button type="submit" class="btn btn-success">Tạo</button>
                     </form>
                 </div>
@@ -154,6 +158,15 @@ include_once '../handle/checkAccount.php';
 <?php include './layout/footer.php' ?>
 <script>
     $(document).ready(function () {
+        checkoninput(["giaban"]);
+        function checkoninput(input_names) {
+            input_names.forEach(element => {
+                $(`input[name=${element}]`).on("input", function (event) {
+                    $(this).val($(this).val()*1);
+                })
+            });
+        }
+
         $('select[name="hang"]').change(function () {
             if ($('select[name="hang"]').val() === "0") {
                 $('input[name="tenhang"]').removeClass('d-none');
@@ -170,13 +183,13 @@ include_once '../handle/checkAccount.php';
         })
 
         $('input[name="sl"]').change(function () {
-            if($('input[name="sl"]').val()*1 < 0) {
+            if ($('input[name="sl"]').val() * 1 < 0) {
                 $('input[name="sl"]').val(0)
             }
         })
     })
 
-    $("#inp").on("input", function() {
+    $("#inp").on("input", function () {
         cover_input_to_canvas("inp", "anh");
     })
 

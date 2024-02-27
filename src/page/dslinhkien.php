@@ -49,7 +49,7 @@ include_once '../handle/checkAccount.php';
                             <th scope="col" style="width: 12%;">Tên LK</th>
                             <th scope="col" style="width: 8%;">Chỉ số</th>
                             <th scope="col" style="width: 10%;">Giá bán</th>
-                            <th scope="col" style="width: 5%;">Giảm</th>
+                            <th scope="col" style="width: 5%;">Giảm(%)</th>
                             <th scope="col" style="width: 10%;">Số lượng</th>
                             <th scope="col" style="width: 5%;">Trạng thái</th>
                             <th scope="col" style="width: 5%;">Ảnh</th>

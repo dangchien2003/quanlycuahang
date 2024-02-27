@@ -43,21 +43,21 @@ include_once '../handle/checkAccount.php';
                             </div>
                             <div class="col-md-3">
                                 <label for="" class="form-label">Số lượng:</label>
-                                <input type="number" class="form-control" id="" name="sl" value="0" required oninput="this.val(this.val()*1)">
+                                <input type="number" class="form-control" id="" name="sl" value="0" required oninput="this.value = this.value*1">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-3">
                                 <label class="form-label">Giá bán:</label>
-                                <input type="number" class="form-control" id="" name="giaban" value="0" required>
+                                <input type="number" class="form-control" id="" name="giaban" value="0" required oninput="this.value = this.value*1">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Giá nhập:</label>
-                                <input type="number" class="form-control" id="" name="gianhap" value="0" required>
+                                <input type="number" class="form-control" id="" name="gianhap" value="0" required oninput="this.value = this.value*1">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Giảm giá(%):</label>
-                                <input type="number" class="form-control" id="" name="giamgia" value="0" required>
+                                <input type="number" class="form-control" id="" name="giamgia" value="0" required oninput="this.value = this.value*1">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Trạng thái:</label>
