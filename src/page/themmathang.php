@@ -196,12 +196,23 @@ include_once '../handle/checkAccount.php';
             }
         })
 
-        $('input[name="sl"]').change(function () {
-            if ($('input[name="sl"]').val() * 1 < 0) {
-                $('input[name="sl"]').val(0)
+        checkinput(["sl", "giaban", 'gianhap', 'giamgia']);
+        $(`input[name="giamgia"]`).change(function () {
+            if ($(`input[name="giamgia"]`).val() * 1 > 100) {
+                $(`input[name="giamgia"]`).val(100)
             }
         })
     })
+    
+    function checkinput(array_name_input) {
+        array_name_input.forEach(element => {
+            $(`input[name="${element}"]`).change(function () {
+                if ($(`input[name="${element}"]`).val() * 1 < 0) {
+                    $(`input[name="${element}"]`).val(0)
+                }
+            })
+        });
+    }
 
     $("#inp").on("input", function () {
         cover_input_to_canvas("inp", "anh");

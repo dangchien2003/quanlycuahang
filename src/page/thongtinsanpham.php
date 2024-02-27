@@ -81,7 +81,8 @@ if ($haveError) {
 
                             <div class="col-md-3">
                                 <label for="exampleFormControlInput1" class="form-label">Số lượng:</label>
-                                <input type="number" class="form-control" id="exampleFormControlInput1" name="sl" value="<?php echo $sp['soluong'] ?>" required>
+                                <input type="number" class="form-control" id="exampleFormControlInput1" name="sl"
+                                    value="<?php echo $sp['soluong'] ?>" required>
                             </div>
                             <?php
                             if ($sp['loaisp']) {
@@ -196,7 +197,8 @@ if ($haveError) {
                         <div class="row">
                             <div class="col-md-8">
                                 <label class="form-label">Thông tin khác(từ khoá?thông tin*từ khoá?thông tin):</label>
-                                <textarea type="number" class="form-control" id="exampleFormControlInput1" name="ttkhac"><?php echo $sp["thongtinkhac"] ?></textarea>
+                                <textarea type="number" class="form-control" id="exampleFormControlInput1"
+                                    name="ttkhac"><?php echo $sp["thongtinkhac"] ?></textarea>
                             </div>
                         </div>
 
@@ -213,8 +215,7 @@ if ($haveError) {
                             <?php
                         } else {
                             ?>
-                            <a href="../handle/hdl_xoasanpham.php?idsp=<?php echo $sp["idsp"] ?>&action=delete"
-                                class="show"
+                            <a href="../handle/hdl_xoasanpham.php?idsp=<?php echo $sp["idsp"] ?>&action=delete" class="show"
                                 onclick="return confirm('Bạn có chắc chắn muốn xoá <?php echo $sp['tensp'] ?>')">
                                 <div class="btn d-inline-block bgr-error">Xoá</div>
                             </a>
@@ -252,12 +253,24 @@ if ($haveError) {
             }
         })
 
-        $('input[name="sl"]').change(function () {
-            if ($('input[name="sl"]').val() * 1 < 0) {
-                $('input[name="sl"]').val(0)
+        checkinput(["sl", "giaban", 'gianhap', 'giamgia']);
+        $(`input[name="giamgia"]`).change(function () {
+            if ($(`input[name="giamgia"]`).val() * 1 > 100) {
+                $(`input[name="giamgia"]`).val(100)
             }
         })
+
     })
+
+    function checkinput(array_name_input) {
+        array_name_input.forEach(element => {
+            $(`input[name="${element}"]`).change(function () {
+                if ($(`input[name="${element}"]`).val() * 1 < 0) {
+                    $(`input[name="${element}"]`).val(0)
+                }
+            })
+        });
+    }
 
     $("#inp").on("input", function () {
         cover_input_to_canvas("inp", "anh");
