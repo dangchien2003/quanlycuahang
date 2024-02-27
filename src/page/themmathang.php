@@ -19,13 +19,13 @@ include_once '../handle/checkAccount.php';
                     </div>
                 </div>
                 <div class="col-md-7">
-                    <form action="../handle/themlkbyexcel.php" method="post" enctype="multipart/form-data">
+                    <form action="../handle/themspbyexcel.php" method="post" enctype="multipart/form-data">
                         <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <label for="" class="form-label">Tải tệp lên:</label>
-                                <input type="file" class="form-control" id="" name="malk" value="" required accept=".xlsx, .xls">
+                                <input type="file" class="form-control" id="" name="file" value="" required accept=".xlsx, .xls" style="font-size: 15px;">
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <label for="" class="form-label"></label>
                                 <button type="submit" class="btn btn-success" style="margin-right: 5px">Tạo bằng excel</button>
                                 <a href="../handle/tai_excel_template.php?object=sp" class="btn btn-info" id="download_file">Tải
