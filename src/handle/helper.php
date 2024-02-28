@@ -182,30 +182,25 @@ function log_error($message)
 
 function uploadIMG($kyhieuanh)
 {
-    
+
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["anhsp"])) {
-        
+
 
         $file_name = $_FILES['anhsp']['name'];
         $path_info = pathinfo($file_name);
         $imageFileType = strtolower($path_info['extension']);
 
         $target_dir = "../../public/image/uploads/";  // Thư mục nơi bạn muốn lưu trữ tệp tin
-        $file_name = $kyhieuanh . getTimestamp(0).".".$imageFileType;
+        $file_name = $kyhieuanh . getTimestamp(0) . "." . $imageFileType;
         $target_file = $target_dir . $file_name;
         $uploadOk = 1;
 
-        
+
         // Kiểm tra xem tệp tin đã tồn tại chưa
         // if (file_exists($target_file)) {
         //     echo "Sorry, file already exists.";
         //     $uploadOk = 0;
         // }
-
-        // Kiểm tra kích thước tệp tin (giả sử giới hạn là 5MB)
-        if ($_FILES["file"]["size"] > 5 * 1024 * 1024) {
-            $uploadOk = 0;
-        }
 
         // Cho phép các định dạng file nhất định (ở đây là chỉ cho phép hình ảnh)
         $allowedFormats = array("jpg", "jpeg", "png");
@@ -213,14 +208,36 @@ function uploadIMG($kyhieuanh)
             $uploadOk = 0;
         }
 
+        $giam_chat_luong_anh = 0;
+        // Kiểm tra kích thước tệp tin (giả sử giới hạn là 2MB)
+        if ($_FILES["anhsp"]["size"] > get_ENV()['max_size_upload'] && $uploadOk == 1) {
+            $giam_chat_luong_anh = 1;
+        }
+
         // Kiểm tra xem $uploadOk có bằng 0 không (có lỗi xảy ra không)
-        if ($uploadOk) {
-            // Nếu mọi thứ đều đúng, thì tiến hành tải lên
-            if (move_uploaded_file($_FILES["anhsp"]["tmp_name"], $target_file)) {
+        if (!$uploadOk) {
+            echo "upload error";
+            return null;
+        }
+
+        // Nếu mọi thứ đều đúng, thì tiến hành tải lên
+        if (move_uploaded_file($_FILES["anhsp"]["tmp_name"], $target_file)) {
+
+            if (!$giam_chat_luong_anh) {
                 return $file_name;
             }
+            // yêu cầu giảm chất lượng
+            $file_size = filesize($target_file);
+            $quality = round((get_ENV()['max_size_upload'] / $file_size) * 100);
+            if ($quality <= 90) {
+                $giam_ok = giam_chat_luong_anh($target_file, $quality);
+                if (!$giam_ok) {
+                    log_error("Giảm không thành công");
+                    echo "Giảm không thành công";
+                }
+            }
+            return $file_name;
         } else {
-            echo "upload error";
             return null;
         }
     }
@@ -245,7 +262,7 @@ function remove_img($name, $location = "../../public/image/uploads/")
     return true;
 }
 
-function getTime($timestamp, $format ,$timezone = "Asia/Ho_Chi_Minh")
+function getTime($timestamp, $format, $timezone = "Asia/Ho_Chi_Minh")
 {
     $dateTime = new DateTime();
     $dateTime->setTimestamp($timestamp);
@@ -286,5 +303,54 @@ function formatnumber($input)
 
     // Trả về chuỗi đã được định dạng
     return $formattedCurrency;
+}
+
+function giam_chat_luong_anh($file_path, $quality = 80)
+{
+    // Lấy phần mở rộng của tập tin ảnh
+    $extension = pathinfo($file_path, PATHINFO_EXTENSION);
+    $xoay = 0;
+    // Tạo hàm xử lý dựa trên phần mở rộng của file
+    switch ($extension) {
+        case 'jpg':
+        case 'jpeg':
+            $source = imagecreatefromjpeg($file_path);
+            $xoay = -90;
+            break;
+        case 'png':
+            $source = imagecreatefrompng($file_path);
+            break;
+        // Thêm các định dạng hình ảnh khác nếu cần
+        default:
+            echo "Không hỗ trợ giảm chất lượng file $extension";
+            log_error("Không hỗ trợ giảm chất lượng file $extension");
+            return false;
+    }
+    // xoay anh
+    $source = imagerotate($source, $xoay, 0);
+    // lấy kích thước mới của ảnh
+    $new_width = imagesx($source);
+    $new_height = imagesy($source);
+    // Tạo một hình ảnh mới với chất lượng giảm đi
+    $image = imagecreatetruecolor($new_width, $new_height);
+    imagecopyresampled($image, $source, 0, 0, 0, 0, $new_width, $new_height, $new_width, $new_height);
+
+    // Xuất ra file mới với chất lượng đã giảm
+    switch ($extension) {
+        case 'jpg':
+        case 'jpeg':
+            imagejpeg($image, $file_path, $quality);
+            break;
+        case 'png':
+            imagepng($image, $file_path, round($quality / 10)); // Điều chỉnh chất lượng cho PNG
+            break;
+        case 'gif':
+            imagegif($image, $file_path);
+            break;
+    }
+    // Giải phóng bộ nhớ
+    imagedestroy($source);
+    imagedestroy($image);
+    return true;
 }
 ?>
