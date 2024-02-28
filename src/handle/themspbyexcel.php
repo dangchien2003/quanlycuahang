@@ -13,7 +13,7 @@ if ($excel_name) {
     $return_message = "";
     if(!$inserted_row) {
         $return_status = 400;
-        $return_message.= "Không thể thêm";
+        $return_message.= "Không thể thêm (Tên, Trạng thái là bắt buộc)";
     }
     else if($inserted_row == -1) {
         $return_status = 400;
@@ -79,7 +79,7 @@ function insert($filePath)
     for ($row = 5; $row <= $highestRow; $row++) {
         for ($colASII = 65; $colASII <= 75; $colASII++) {
             $col = chr($colASII);
-            $cellValue = $sheet->getCell($col . $row)->getValue();
+            $cellValue = $sheet->getCell($col . $row)->getValue()??NULL;
             // cột tên
             if($colASII == 65) {
                 if(!$cellValue) {
@@ -94,6 +94,8 @@ function insert($filePath)
                 }else {
                     array_push($values, NULL);
                 }
+                // thêm lúc tạo
+                array_push($values, getTimestamp(0));
                 break;
             }
             array_push($values, $cellValue ?? NULL);
