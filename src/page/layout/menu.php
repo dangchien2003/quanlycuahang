@@ -44,6 +44,12 @@
                     Thêm sản phẩm
                 </li>
             </a>
+            <a href="./dssanphamdaban.php">
+                <li>
+                    <i class="bi bi-patch-plus"></i>
+                    Sản phẩm đã bán
+                </li>
+            </a>
 
         </ul>
         <li class="parent-menu position-relative">
@@ -88,6 +94,12 @@
                 <li>
                     <i class="bi bi-patch-plus"></i>
                     Thêm linh kiện
+                </li>
+            </a>
+            <a href="./dslinhkiendaban.php">
+                <li>
+                    <i class="bi bi-patch-plus"></i>
+                    Linh kiện đã bán
                 </li>
             </a>
         </ul>

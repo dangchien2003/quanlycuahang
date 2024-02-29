@@ -16,7 +16,6 @@ function query_no_input($sql)
             return $result;
         } else {
             closeDB($start);
-            $run = explode(" ", trim($sql));
             return $run;
         }
     } catch (Exception $e) {

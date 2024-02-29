@@ -130,7 +130,7 @@ if ($error['e']) {
         event.preventDefault();
     })
     $("#submit").click(function () {
-        var kh = prompt("Nhập tên khách hàng");
+        var kh = prompt("Nhập tên khách hàng").trim();
         if(kh == null) {
             return;
         }

@@ -135,10 +135,11 @@ if ($error['e']) {
         event.preventDefault();
     })
     $("#submit").click(function () {
-        var kh = prompt("Nhập tên khách hàng");
+        var kh = prompt("Nhập tên khách hàng").trim();
         if(kh == null) {
             return;
         }
+
         $(".thongtinsanpham").append(`<input type="text" class="d-none" name="kh" value="${kh}">`);
         $(".thongtinsanpham").off("submit").submit();
     })

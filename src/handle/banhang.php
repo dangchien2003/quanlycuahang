@@ -32,7 +32,7 @@ function bansanpham() {
             // thêm bảng đã bán
             $sql = "INSERT into sanphamdaban(idsp, giaban, gianhap, soluong, banluc, tenkhachhang) values(?, ?, ?, ?, ?, ?)";
             date_default_timezone_set('Asia/Ho_Chi_Minh');
-            $add = query_input($sql, [$_POST['idsp'], $_POST['giaban'], $_POST['gn'], $_POST['sl'], date("Y-m-d H:i:s"), $_POST['kh']]);
+            $add = query_input($sql, [$_POST['idsp'], $_POST['giaban'], $_POST['gn'], $_POST['sl'], date("Y-m-d H:i:s"), $_POST['kh']??NULL]);
             if($add) {
                 header("Location: ../page/sanpham.php?status=200&message=Đã bán&id=".$_POST['idsp']);
             }else {
@@ -58,7 +58,7 @@ function banlinhkien() {
             // thêm bảng đã bán
             $sql = "INSERT into linhkiendaban(malk, giaban, gianhap, soluong, banluc, tenkhachhang) values(?, ?, ?, ?, ?, ?)";
             date_default_timezone_set('Asia/Ho_Chi_Minh');
-            $add = query_input($sql, [$_POST['malk'], $_POST['giaban'], $_POST['gn'], $_POST['sl'], date("Y-m-d H:i:s"), $_POST['kh']]);
+            $add = query_input($sql, [$_POST['malk'], $_POST['giaban'], $_POST['gn'], $_POST['sl'], date("Y-m-d H:i:s"), $_POST['kh']??NULL]);
             if($add) {
                 header("Location: ../page/linhkien.php?status=200&message=Đã bán&malk=".$_POST['malk']);
             }else {
