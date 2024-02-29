@@ -1,5 +1,6 @@
 <?php
 include_once '../config/configdb.php';
+
 error_reporting(0);
 
 function query_no_input($sql)
@@ -352,5 +353,49 @@ function giam_chat_luong_anh($file_path, $quality = 80)
     imagedestroy($source);
     imagedestroy($image);
     return true;
+}
+
+
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
+// save_img_from_excel('./test.xlsx');
+function save_img_from_excel($excel_path) {
+    require_once '../../vendor/autoload.php';
+    // Tải file excel
+    $reader = IOFactory::createReader('Xlsx');
+    $spreadsheet = $reader->load($excel_path);
+    
+    // Lấy ảnh từ ô A1 sheet thứ nhất
+    $worksheet = $spreadsheet->getActiveSheet();
+    $drawingCollection = $worksheet->getDrawingCollection();
+    
+    // Tìm ảnh trong bộ sưu tập
+    $image = null;
+    $count = 0;
+    $start = false;
+    foreach ($drawingCollection as $drawing) {
+        if(!$start) {
+            $start = true;
+            continue;
+        }
+        if ($drawing instanceof Drawing) {
+            $imageContents = file_get_contents($drawing->getPath());
+            if(file_put_contents(render_name("SP").".png", $imageContents)) {
+                $count++;
+            }
+            
+        }
+    }
+    
+    // Kiểm tra nếu tìm thấy và lưu ảnh thành file
+    if ($count) {
+        echo "$count Ảnh đã được lưu thành công";
+    } else {
+        echo "Không tìm thấy ảnh";
+    }
+}
+
+function render_name($kyhieuanh , $imageFileType="png") {
+    return $kyhieuanh . getTimestamp(0)."_". random_int(1, 100) . "." . $imageFileType;
 }
 ?>
