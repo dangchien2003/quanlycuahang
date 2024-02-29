@@ -88,7 +88,7 @@ include_once '../handle/checkAccount.php';
                             $search = "(linhkien.malinhkien = '".$_GET['search']."' or linhkien.tenlinhkien like '%".$_GET['search']."%')";
                         } 
 
-                        $sql = "SELECT sanphamdaban.idsp, sanpham.tensp, sanphamdaban.giaban, sanphamdaban.soluong, sanphamdaban.banluc, sanphamdaban.tenkhachhang FROM sanphamdaban JOIN sanpham limit ?, ?;";
+                        $sql = "SELECT sanphamdaban.idsp, sanpham.tensp, sanphamdaban.giaban, sanphamdaban.soluong, sanphamdaban.banluc, sanphamdaban.tenkhachhang FROM sanphamdaban JOIN sanpham on sanpham.idsp = sanphamdaban.idsp limit ?, ?;";
                         // limit 
                         $result = query_input($sql, [($page - 1) * $item_one_page, $page * $item_one_page]);
                         // $result = query_no_input($sql);

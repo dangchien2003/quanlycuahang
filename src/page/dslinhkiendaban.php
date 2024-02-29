@@ -8,7 +8,7 @@ include_once '../handle/checkAccount.php';
     <div class="col-lg-9 sdp tp" style="min-height: 1000px;">
         <div class="box">
             <div class="name">
-                <i class="bi bi-bookshelf"></i>Mặt hàng đã bán
+                <i class="bi bi-bookshelf"></i>Linh kiện đã bán
             </div>
             <div class="find">
                 <div class="ttp">
@@ -88,7 +88,7 @@ include_once '../handle/checkAccount.php';
                             $search = "(linhkien.malinhkien = '".$_GET['search']."' or linhkien.tenlinhkien like '%".$_GET['search']."%')";
                         } 
 
-                        $sql = "SELECT linhkiendaban.malk, linhkien.tenlinhkien, linhkiendaban.giaban, linhkiendaban.soluong, linhkiendaban.banluc, linhkiendaban.tenkhachhang FROM linhkiendaban JOIN linhkien limit ?, ?;";
+                        $sql = "SELECT linhkiendaban.malk, linhkien.tenlinhkien, linhkiendaban.giaban, linhkiendaban.soluong, linhkiendaban.banluc, linhkiendaban.tenkhachhang FROM linhkiendaban JOIN linhkien on linhkien.malinhkien = linhkiendaban.malk limit ?, ?;";
                         // limit 
                         $result = query_input($sql, [($page - 1) * $item_one_page, $page * $item_one_page]);
                         // $result = query_no_input($sql);

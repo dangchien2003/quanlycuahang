@@ -46,7 +46,7 @@
             </a>
             <a href="./dssanphamdaban.php">
                 <li>
-                    <i class="bi bi-patch-plus"></i>
+                    <i class="bi bi-archive"></i>
                     Sản phẩm đã bán
                 </li>
             </a>
@@ -98,7 +98,7 @@
             </a>
             <a href="./dslinhkiendaban.php">
                 <li>
-                    <i class="bi bi-patch-plus"></i>
+                    <i class="bi bi-archive"></i>
                     Linh kiện đã bán
                 </li>
             </a>

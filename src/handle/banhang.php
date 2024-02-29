@@ -10,20 +10,30 @@ if(checkRequest($_GET, ["mh"])) {
             break;
         default: 
             header("Location: ../page/cuahang.php?status=400&message=Có lỗi xảy ra");
+            exit();
     }
 }
 
 // kiểm tra đầu vào
 function checkinput($ma) {
-    if(!checkRequest($_POST, [$ma, "sl", "giaban"], true)) {
+    if(!checkRequest($_POST, [$ma, "sl"])) {
         return false;
     }
     return true;
 }
 
 function bansanpham() {
+    
+    
     // kiểm tra đầu vào
     if(checkinput("idsp")) {
+        $gia = $_POST["giaban"]??0;
+        if(!$gia) {
+            header("Location: ../page/sanpham.php?status=400&message=Lỗi giá bán&id=".$_POST['idsp']);
+            exit();
+        }
+
+        
         // update số lượng
         $sql = "UPDATE sanpham SET soluong = soluong - ? WHERE idsp = ?";
         $update = query_input($sql, [$_POST['sl'], $_POST['idsp']]);
@@ -50,6 +60,11 @@ function bansanpham() {
 function banlinhkien() {
     // kiểm tra đầu vào
     if(checkinput("malk")) {
+        $gia = $_POST["giaban"]??0;
+        if(!$gia) {
+            header("Location: ../page/linhkien.php?status=400&message=Lỗi giá bán&malk=".$_POST['malk']);
+            exit();
+        }
         // update số lượng
         $sql = "UPDATE linhkien SET soluong = soluong - ? WHERE malinhkien = ?";
         $update = query_input($sql, [$_POST['sl'], $_POST['malk']]);
