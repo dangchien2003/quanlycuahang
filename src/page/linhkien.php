@@ -131,7 +131,9 @@ if ($error['e']) {
     })
     $("#submit").click(function () {
         var kh = prompt("Nhập tên khách hàng");
-        
+        if(kh == null) {
+            return;
+        }
         $(".thongtinsanpham").append(`<input type="text" class="d-none" name="kh" value="${kh}">`);
         $(".thongtinsanpham").off("submit").submit();
     })
