@@ -82,7 +82,7 @@ include_once '../handle/checkAccount.php';
                                     $tt = 2;
                                     break;
                                 case "7":
-                                    $tt = "7 or (soluong = 0 and linhkien.trangthai != 2)";
+                                    $tt = "7 or (soluong = 0 and linhkien.trangthai != 2 and linhkien.xoaluc is null)";
                                     break;
                                 case "-1":
                                     $linhkien_da_xoa = "linhkien.xoaluc is not null";
