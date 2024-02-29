@@ -370,7 +370,6 @@ function save_img_from_excel($excel_path) {
     $drawingCollection = $worksheet->getDrawingCollection();
     
     // Tìm ảnh trong bộ sưu tập
-    $image = null;
     $count = 0;
     $start = false;
     foreach ($drawingCollection as $drawing) {
@@ -380,10 +379,9 @@ function save_img_from_excel($excel_path) {
         }
         if ($drawing instanceof Drawing) {
             $imageContents = file_get_contents($drawing->getPath());
-            if(file_put_contents(render_name("SP").".png", $imageContents)) {
+            if(file_put_contents(render_name("SP"), $imageContents)) {
                 $count++;
             }
-            
         }
     }
     
@@ -393,6 +391,7 @@ function save_img_from_excel($excel_path) {
     } else {
         echo "Không tìm thấy ảnh";
     }
+    return $count;
 }
 
 function render_name($kyhieuanh , $imageFileType="png") {
