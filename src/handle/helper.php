@@ -87,7 +87,7 @@ function checkRequest($method, $names, $allow = false)
 {
     foreach ($names as $name) {
         if (isset($method["$name"])) {
-            if ($method[$name] == 0 && $allow) {
+            if (($method[$name] == 0 || $method[$name] == "" ) && $allow) {
             } else if (empty($method["$name"])) {
                 return false; // nếu rỗng
             }

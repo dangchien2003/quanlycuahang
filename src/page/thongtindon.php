@@ -1,6 +1,6 @@
 <?php include './layout/header.php';
 include_once '../handle/checkAccount.php';
-
+// die();
 if (!checkRequest($_GET, ["object"])) {
     header("location: ./dssanpham.php?status=400&message=Đối tượng không xác định");
     exit();
@@ -107,7 +107,7 @@ if ($haveError) {
                                 <div class="d-none">
                                     <input type="password" value="<?php echo $order["ma"] ?>" name="ma">
                                     <input type="password" value="<?php echo $order["banluc"] ?>" name="old_banluc">
-                                    <input type="password" value="<?php echo $order["kh"] ?>" name="old_kh">
+                                    <input type="password" value="<?php echo $order["tenkhachhang"] ?>" name="old_kh">
                                 </div>
                             </div>
                         </div>
