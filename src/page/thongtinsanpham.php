@@ -239,14 +239,14 @@ if ($haveError) {
             $(".img-old").addClass("border-delete")
         })
         $('select[name="hang"]').change(function () {
-            if ($('select[name="hang"]').val() == 0) {
+            if ($('select[name="hang"]').val() == "0") {
                 $('input[name="tenhang"]').removeClass('d-none');
             } else {
                 $('input[name="tenhang"]').addClass('d-none');
             }
         })
         $('select[name="phanloai"]').change(function () {
-            if ($('select[name="phanloai"]').val() == 0) {
+            if ($('select[name="phanloai"]').val() == "0") {
                 $('input[name="phanloaikhac"]').removeClass('d-none');
             } else {
                 $('input[name="phanloaikhac"]').addClass('d-none');
