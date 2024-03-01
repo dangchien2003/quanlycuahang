@@ -105,7 +105,7 @@ include_once '../handle/checkAccount.php';
                                         <?php echo $row['tenlinhkien'] ?>
                                     </td>
                                     <td>
-                                        <?php echo $row['soluong'] ?>
+                                        <?php echo formatnumber($row['soluong']) ?>
                                     </td>
                                     <td>
                                         <?php echo formatnumber($row['giaban']) ?>đ

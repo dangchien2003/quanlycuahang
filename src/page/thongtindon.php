@@ -78,8 +78,8 @@ if ($haveError) {
 
                             <div class="col-md-3">
                                 <label for="exampleFormControlInput1" class="form-label">Số lượng:</label>
-                                <input type="number" class="form-control" id="exampleFormControlInput1" name="sl"
-                                    value="<?php echo $order['soluong'] ?>" required>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" name="sl"
+                                    value="<?php echo formatnumber($order['soluong']) ?>" required>
                             </div>
                             <div class="col-md-4">
                                 <label for="exampleFormControlInput1" class="form-label">Ngày bán:</label>
@@ -95,13 +95,13 @@ if ($haveError) {
                         <div class="row">
                             <div class="col-md-3">
                                 <label class="form-label">Giá bán:</label>
-                                <input type="number" class="form-control" id="exampleFormControlInput1" name="giaban"
-                                    value="<?php echo $order['giaban'] ?>" required>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" name="giaban"
+                                    value="<?php echo formatnumber($order['giaban']) ?>" required>
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Giá nhập:</label>
-                                <input type="number" class="form-control" id="exampleFormControlInput1" name="gianhap"
-                                    value="<?php echo $order['gianhap'] ?>" required>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" name="gianhap"
+                                    value="<?php echo formatnumber($order['gianhap']) ?>" required>
                             </div>
                             <div class="row">
                                 <div class="d-none">
