@@ -110,15 +110,14 @@ include_once '../handle/checkAccount.php';
                                         <?php echo $row['tensp'] ?>
                                     </td>
                                     <td>
-                                        <?php echo $row['giaban'] ?>
+                                        <?php echo formatnumber($row['giaban'] )?>
                                     </td>
                                     <td>
                                         <?php echo $row['giamgia'] ?>
                                     </td>
                                     <td>
-                                        <?php echo $row['soluong'] ?>
+                                        <?php echo formatnumber($row['soluong']) ?>
                                     </td>
-
                                     <td>
                                         <div class="btn-tt bgr-wait">
                                             <?php echo $row['tentrangthai'] ?>

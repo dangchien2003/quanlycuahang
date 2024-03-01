@@ -9,9 +9,9 @@ if (checkRequest($_POST, ["malk"]) && checkRequest($_GET, ["malk"])) {
             $ten = $_POST['tenlk'];
             $chiso = $_POST['chiso']??NULL;
             $congdung = $_POST['congdung']??NULL;
-            $sl = $_POST['sl'] ?? 0;
-            $giaban = $_POST['giaban'] ?? 0;
-            $gianhap = $_POST['gianhap'] ?? 0;
+            $sl = cover_price($_POST['sl']) ?? 0;
+            $giaban = cover_price($_POST['giaban']) ?? 0;
+            $gianhap = cover_price($_POST['gianhap']) ?? 0;
             $giamgia = $_POST['giamgia'] ?? 0;
             $trangthai = $_POST['trangthai'] ?? 2;
             $ttkhac = $_POST['ttkhac'] ?? NULL;

@@ -81,8 +81,8 @@ if ($haveError) {
 
                             <div class="col-md-3">
                                 <label for="exampleFormControlInput1" class="form-label">Số lượng:</label>
-                                <input type="number" class="form-control" id="exampleFormControlInput1" name="sl"
-                                    value="<?php echo $sp['soluong'] ?>" required>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" name="sl"
+                                    value="<?php echo formatnumber($sp['soluong']) ?>" required oninput="formatNumber(this)">
                             </div>
                             <?php
                             if ($sp['loaisp']) {
@@ -132,13 +132,13 @@ if ($haveError) {
                         <div class="row">
                             <div class="col-md-3">
                                 <label class="form-label">Giá bán:</label>
-                                <input type="number" class="form-control" id="exampleFormControlInput1" name="giaban"
-                                    value="<?php echo $sp['giaban'] ?>" required>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" name="giaban"
+                                    value="<?php echo formatnumber($sp['giaban']) ?>" required oninput="formatNumber(this)">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Giá nhập:</label>
-                                <input type="number" class="form-control" id="exampleFormControlInput1" name="gianhap"
-                                    value="<?php echo $sp['gianhap'] ?>" required>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" name="gianhap"
+                                    value="<?php echo formatnumber($sp['gianhap']) ?>" required oninput="formatNumber(this)">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Giảm giá(%):</label>

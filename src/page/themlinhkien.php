@@ -58,20 +58,20 @@ include_once '../handle/checkAccount.php';
                             </div>
                             <div class="col-md-3">
                                 <label for="" class="form-label">Số lượng:</label>
-                                <input type="number" class="form-control" id="" name="sl" value="0" required
-                                    oninput="this.value = this.value*1">
+                                <input type="text" class="form-control" id="" name="sl" value="0" required
+                                oninput="formatNumber(this)">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-3">
                                 <label class="form-label">Giá bán:</label>
-                                <input type="number" class="form-control" id="" name="giaban" value="0" required
-                                    oninput="this.value = this.value*1">
+                                <input type="text" class="form-control" id="" name="giaban" value="0" required
+                                    oninput="formatNumber(this)">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Giá nhập:</label>
-                                <input type="number" class="form-control" id="" name="gianhap" value="0" required
-                                    oninput="this.value = this.value*1">
+                                <input type="text" class="form-control" id="" name="gianhap" value="0" required
+                                    oninput="formatNumber(this)">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Giảm giá(%):</label>

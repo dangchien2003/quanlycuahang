@@ -396,4 +396,8 @@ function save_img_from_excel($excel_path) {
 function render_name($kyhieuanh , $imageFileType="png") {
     return $kyhieuanh . getTimestamp(0)."_". random_int(1, 100) . "." . $imageFileType;
 }
+
+function cover_price($decimalNumber) {
+    return str_replace('.', '', $decimalNumber);
+}
 ?>

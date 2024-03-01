@@ -62,21 +62,21 @@ if ($haveError) {
                             </div>
                             <div class="col-md-3">
                                 <label for="" class="form-label">Số lượng:</label>
-                                <input type="number" class="form-control" id="" name="sl" value="<?php echo $sp['soluong'] ?>" required>
+                                <input type="text" class="form-control" id="" name="sl" value="<?php echo formatnumber($sp['soluong']) ?>" required oninput="formatNumber(this)">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-3">
                                 <label class="form-label">Giá bán:</label>
-                                <input type="number" class="form-control" id="" name="giaban" value="<?php echo $sp['giaban'] ?>" required>
+                                <input type="text" class="form-control" id="" name="giaban" value="<?php echo formatnumber($sp['giaban']) ?>" required oninput="formatNumber(this)">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Giá nhập:</label>
-                                <input type="number" class="form-control" id="" name="gianhap" value="<?php echo $sp['gianhap'] ?>" required>
+                                <input type="text" class="form-control" id="" name="gianhap" value="<?php echo formatnumber($sp['gianhap']) ?>" required oninput="formatNumber(this)">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Giảm giá(%):</label>
-                                <input type="number" class="form-control" id="" name="giamgia" value="<?php echo $sp['giamgia'] ?>" required>
+                                <input type="number" class="form-control" id="" name="giamgia" value="<?php echo $sp['giamgia'] ?>" required oninput="this.value = this.value*1">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Trạng thái:</label>
