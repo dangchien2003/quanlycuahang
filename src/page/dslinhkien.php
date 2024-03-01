@@ -8,7 +8,7 @@ include_once '../handle/checkAccount.php';
     <div class="col-lg-9 sdp tp" style="min-height: 1000px;">
         <div class="box">
             <div class="name">
-                <i class="bi bi-bookshelf"></i>Sản phẩm đã tạo
+                <i class="bi bi-bookshelf"></i>Linh kiện đã tạo
             </div>
             <div class="find">
                 <div class="ttp">

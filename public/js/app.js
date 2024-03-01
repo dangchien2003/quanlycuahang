@@ -179,3 +179,18 @@ function showImg() {
     // takeSnapshot();
   }
 }
+
+function formatNumber(input) {
+  // Lấy giá trị của trường input
+  let value = input.value;
+
+  // Xóa các ký tự không phải số
+  value = value.replace(/\D/g, '');
+
+  // Định dạng số thành chuỗi với dấu ngăn cách
+  value = new Intl.NumberFormat('vi-VN').format(value);
+
+  // Đặt lại giá trị cho trường input
+  input.value = value;
+}
+

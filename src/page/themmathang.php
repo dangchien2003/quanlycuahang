@@ -73,8 +73,8 @@ include_once '../handle/checkAccount.php';
 
                             <div class="col-md-3">
                                 <label for="exampleFormControlInput1" class="form-label">Số lượng:</label>
-                                <input type="number" class="form-control" id="exampleFormControlInput1" name="sl"
-                                    value="0" required oninput="this.value = this.value*1">
+                                <input type="text" class="form-control" id="exampleFormControlInput1" name="sl"
+                                    value="0" required oninput="formatNumber(this)">
                             </div>
                             <div class="col-md-2">
                                 <label for="exampleFormControlInput1" class="form-label">Loại hàng:</label>
@@ -109,18 +109,18 @@ include_once '../handle/checkAccount.php';
                         <div class="row">
                             <div class="col-md-3">
                                 <label class="form-label">Giá bán:</label>
-                                <input type="number" class="form-control" id="exampleFormControlInput1" name="giaban"
-                                    value="0" required>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" name="giaban"
+                                    value="0" required oninput="formatNumber(this)">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Giá nhập:</label>
-                                <input type="number" class="form-control" id="exampleFormControlInput1" name="gianhap"
-                                    value="0" required oninput="this.value = this.value*1">
+                                <input type="text" class="form-control" id="exampleFormControlInput1" name="gianhap"
+                                    value="0" required oninput="formatNumber(this)">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Giảm giá(%):</label>
                                 <input type="number" class="form-control" id="exampleFormControlInput1" name="giamgia"
-                                    value="0" required oninput="this.value = this.value*1">
+                                    value="0" required >
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Trạng thái:</label>
@@ -172,7 +172,7 @@ include_once '../handle/checkAccount.php';
 <?php include './layout/footer.php' ?>
 <script>
     $(document).ready(function () {
-        checkoninput(["giaban"]);
+        // checkoninput(["giaban"]);
         function checkoninput(input_names) {
             input_names.forEach(element => {
                 $(`input[name=${element}]`).on("input", function (event) {
@@ -197,7 +197,7 @@ include_once '../handle/checkAccount.php';
         })
 
         checkinput(["sl", "giaban", 'gianhap', 'giamgia']);
-        $(`input[name="giamgia"]`).change(function () {
+        $(`input[name="giamgia"]`).on("input", function () {
             if ($(`input[name="giamgia"]`).val() * 1 > 100) {
                 $(`input[name="giamgia"]`).val(100)
             }

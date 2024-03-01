@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../../public/image/icon/logo.png" type="image/png">
+    <link rel="icon" href="../../public/image/icon/logo.png?v=<?php echo filemtime('../../public/image/icon/logo.png')?>" type="image/png">
     <title>Quản lý cửa hàng</title>
     <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../public/css/calc.css">
-    <link rel="stylesheet" href="../../public/css/style.css">
-    <link rel="stylesheet" href="../../public/css/style2.css">
-    <link rel="stylesheet" href="../../public/css/search.css">
+    <link rel="stylesheet" href="../../public/css/calc.css?v=<?php echo filemtime('../../public/css/calc.css')?>">
+    <link rel="stylesheet" href="../../public/css/style.css?<?php echo filemtime('../../public/css/style.css')?>">
+    <link rel="stylesheet" href="../../public/css/style2.css?v=<?php echo filemtime('../../public/css/style2.css')?>">
+    <link rel="stylesheet" href="../../public/css/search.css?v=<?php echo filemtime('../../public/css/search.css')?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="../../public/css/toast.css">
+    <link rel="stylesheet" href="../../public/css/toast.css?v=<?php echo filemtime('../../public/css/toast.css')?>">
     <?php
     error_reporting(1);
     function addStyle($name)

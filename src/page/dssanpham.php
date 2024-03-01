@@ -96,8 +96,6 @@ include_once '../handle/checkAccount.php';
                         } 
 
                         $sql = "SELECT idsp, tensp, giaban, giamgia, soluong, trangthai, trangthai.tentrangthai, anhsp, xoaluc FROM sanpham JOIN trangthai on trangthai.id = sanpham.trangthai where $sanpham_da_xoa and sanpham.trangthai = $tt and $search LIMIT ?, ?";
-                        echo $sql;
-                        // die();
                         $result = query_input($sql, [($page - 1) * $item_one_page, $page * $item_one_page]);
                         if ($result->num_rows == 0) {
                             echo '<div class="bi-text-center">Không có thông tin</div>';

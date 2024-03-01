@@ -1,0 +1,19 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Input</title>
+</head>
+<body>
+    <form action="">
+        <input type="number" id="myNumberInput" oninput="formatNumber(this)">
+    </form>
+    <script src="script.js"></script>
+    <script>
+        function formatNumber(input) {
+            
+           console.log(document.getElementById("myNumberInput").value);
+        }
+    </script>
+</body>
+</html>

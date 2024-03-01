@@ -87,7 +87,7 @@
         <a href="./dslinhkien.php">
                 <li>
                     <i class="bi bi-view-list"></i>
-                    Sản phẩm
+                    Linh kiện
                 </li>
             </a>
             <a href="./themlinhkien.php">

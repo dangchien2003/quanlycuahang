@@ -117,7 +117,7 @@ include_once '../handle/checkAccount.php';
                                         <?php echo $row['tenkhachhang'] ?>
                                     </td>
                                     <td>
-                                        <a href="./thongtindon.php?masp=<?php echo $row['idsp'] ?>&banluc=<?php echo $row['banluc'] ?>&kh=<?php echo $row['tenkhachhang'] ?>&object=lk"
+                                        <a href="./thongtindon.php?ma=<?php echo $row['malk'] ?>&banluc=<?php echo $row['banluc'] ?>&kh=<?php echo $row['tenkhachhang'] ?>&object=lk"
                                             class="show">
                                             <div class="btn-tt d-inline-block bgr-ok">Xem</div>
                                         </a>
