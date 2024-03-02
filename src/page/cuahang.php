@@ -107,9 +107,16 @@ include_once '../handle/checkAccount.php';
 addScript(['search']) ?>
 <script>
     addclass();
+    function addclass() {
+        console.log("object");
+    var check = document.getElementById("input-search").value;
+    search = document.getElementById("search-box");
+    check != "" ? search.classList.add("open") : search.classList.remove("open");
+    }
     $(".icon").click(function () {
         var search = $("#input-search").val();
         if (search) {
+            console.log(search);
             addParams("f", search);
             location.reload();
         }

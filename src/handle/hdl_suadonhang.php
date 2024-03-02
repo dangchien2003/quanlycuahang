@@ -28,7 +28,7 @@ if (!checkRequest($_POST, ["ma", "sl", 'banluc', 'giaban', 'gianhap', 'old_banlu
 }
 
 
-$update = query_input($sql, [$_POST['giaban'], $_POST['gianhap'], $_POST['sl'], $_POST['banluc'], $_POST['kh'], $_POST['ma'], $_POST['old_banluc'], $_POST['old_kh']]);
+$update = query_input($sql, [cover_price($_POST['giaban']), cover_price($_POST['gianhap']), cover_price($_POST['sl']), $_POST['banluc'], $_POST['kh'], $_POST['ma'], $_POST['old_banluc'], $_POST['old_kh']]);
 
 if(!$update) {
     header("location: ../page/$location_when_error?status=400&message=Lỗi sửa thông tin");

@@ -79,7 +79,7 @@ if ($haveError) {
                             <div class="col-md-3">
                                 <label for="exampleFormControlInput1" class="form-label">Số lượng:</label>
                                 <input type="text" class="form-control" id="exampleFormControlInput1" name="sl"
-                                    value="<?php echo formatnumber($order['soluong']) ?>" required>
+                                    value="<?php echo formatnumber($order['soluong']) ?>" required oninput="formatNumber(this)">
                             </div>
                             <div class="col-md-4">
                                 <label for="exampleFormControlInput1" class="form-label">Ngày bán:</label>
@@ -96,12 +96,12 @@ if ($haveError) {
                             <div class="col-md-3">
                                 <label class="form-label">Giá bán:</label>
                                 <input type="text" class="form-control" id="exampleFormControlInput1" name="giaban"
-                                    value="<?php echo formatnumber($order['giaban']) ?>" required>
+                                    value="<?php echo formatnumber($order['giaban']) ?>" required oninput="formatNumber(this)">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Giá nhập:</label>
                                 <input type="text" class="form-control" id="exampleFormControlInput1" name="gianhap"
-                                    value="<?php echo formatnumber($order['gianhap']) ?>" required>
+                                    value="<?php echo formatnumber($order['gianhap']) ?>" required oninput="formatNumber(this)">
                             </div>
                             <div class="row">
                                 <div class="d-none">

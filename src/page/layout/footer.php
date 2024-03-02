@@ -7,7 +7,7 @@
     <?php 
         function addScript($name) {
             foreach($name as $script) {
-                echo '<script src="'.'../../public/js/'.$script.'.js?v='. filemtime('../../public/js/'.$script.'.js').'></script>';    
+                echo '<script src="'.'../../public/js/'.$script.'.js"?v='. filemtime('../../public/js/'.$script.'.js').'></script>';    
             }
         }
     ?> 
